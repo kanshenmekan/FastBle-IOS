@@ -1,0 +1,862 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72691D112B32C36400A43022 /* HYHBleRssiCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 72691D102B32C36400A43022 /* HYHBleRssiCallback.m */; };
+		727407BA2B2A9D0100187381 /* HYHTimepiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 727407B92B2A9D0100187381 /* HYHTimepiece.m */; };
+		727407BD2B2AA60C00187381 /* HYHBleLruDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 727407BC2B2AA60C00187381 /* HYHBleLruDictionary.m */; };
+		727407C02B2AD65B00187381 /* HYHThreadSafeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 727407BF2B2AD65B00187381 /* HYHThreadSafeDictionary.m */; };
+		727407C32B2AE72F00187381 /* HYHMultipleBluetoothController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727407C22B2AE72F00187381 /* HYHMultipleBluetoothController.m */; };
+		727407C62B2AE95700187381 /* HYHBleBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 727407C52B2AE95700187381 /* HYHBleBluetooth.m */; };
+		727D77082B3131B7005DC6EC /* HYHBleOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D77072B3131B7005DC6EC /* HYHBleOperator.m */; };
+		727D770F2B313D4D005DC6EC /* HYHBleReadCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D770E2B313D4D005DC6EC /* HYHBleReadCallback.m */; };
+		727D77192B3143B1005DC6EC /* CBPeripheral+HYHBle.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D77182B3143B1005DC6EC /* CBPeripheral+HYHBle.m */; };
+		727D771C2B31476B005DC6EC /* CBService+HYHBle.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D771B2B31476B005DC6EC /* CBService+HYHBle.m */; };
+		727D771F2B3149F6005DC6EC /* HYHBleOperateCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D771E2B3149F6005DC6EC /* HYHBleOperateCallback.m */; };
+		727D77222B318A90005DC6EC /* HYHBleNotifyCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D77212B318A90005DC6EC /* HYHBleNotifyCallback.m */; };
+		727D77252B31B4CE005DC6EC /* HYHBleWriteCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D77242B31B4CE005DC6EC /* HYHBleWriteCallback.m */; };
+		727D77282B31C2DE005DC6EC /* HYHBleSplitWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D77272B31C2DE005DC6EC /* HYHBleSplitWriter.m */; };
+		727D772C2B31C6C6005DC6EC /* HYHDataUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D772B2B31C6C6005DC6EC /* HYHDataUtils.m */; };
+		727D772F2B31C6E6005DC6EC /* HYHQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D772E2B31C6E6005DC6EC /* HYHQueue.m */; };
+		728023BC2B2FF18B0036A3AB /* HYHBleError.m in Sources */ = {isa = PBXBuildFile; fileRef = 728023BB2B2FF18B0036A3AB /* HYHBleError.m */; };
+		728023BF2B30506C0036A3AB /* HYHBleConnectCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 728023BE2B30506C0036A3AB /* HYHBleConnectCallback.m */; };
+		728023C22B306FF00036A3AB /* HYHBleDiscoverCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 728023C12B306FF00036A3AB /* HYHBleDiscoverCallback.m */; };
+		7280F1C72B293EB500AC56F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F1C62B293EB500AC56F7 /* AppDelegate.m */; };
+		7280F1CA2B293EB500AC56F7 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F1C92B293EB500AC56F7 /* SceneDelegate.m */; };
+		7280F1CD2B293EB500AC56F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F1CC2B293EB500AC56F7 /* ViewController.m */; };
+		7280F1D02B293EB500AC56F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7280F1CE2B293EB500AC56F7 /* Main.storyboard */; };
+		7280F1D22B293EB600AC56F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7280F1D12B293EB600AC56F7 /* Assets.xcassets */; };
+		7280F1D52B293EB600AC56F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7280F1D32B293EB600AC56F7 /* LaunchScreen.storyboard */; };
+		7280F1D82B293EB600AC56F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F1D72B293EB600AC56F7 /* main.m */; };
+		7280F1E22B293EB600AC56F7 /* FastBleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F1E12B293EB600AC56F7 /* FastBleTests.m */; };
+		7280F1EC2B293EB600AC56F7 /* FastBleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F1EB2B293EB600AC56F7 /* FastBleUITests.m */; };
+		7280F1EE2B293EB600AC56F7 /* FastBleUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F1ED2B293EB600AC56F7 /* FastBleUITestsLaunchTests.m */; };
+		7280F2032B29419A00AC56F7 /* HYHBleScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F2022B29419A00AC56F7 /* HYHBleScanner.m */; };
+		7280F20A2B29466200AC56F7 /* HYHBleDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F2092B29466200AC56F7 /* HYHBleDevice.m */; };
+		7280F20D2B2951F100AC56F7 /* HYHBleScanRuleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F20C2B2951F100AC56F7 /* HYHBleScanRuleConfig.m */; };
+		7280F2102B29594100AC56F7 /* HYHCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F20F2B29594100AC56F7 /* HYHCentralManager.m */; };
+		7280F2142B2960A100AC56F7 /* HYHBleOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7280F2132B2960A100AC56F7 /* HYHBleOptions.m */; };
+		7284044A2B33F36500D1B0C3 /* HYHBlockingQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 728404492B33F36500D1B0C3 /* HYHBlockingQueue.m */; };
+		728404532B342B2700D1B0C3 /* HYHBleOperatorQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 728404522B342B2700D1B0C3 /* HYHBleOperatorQueue.m */; };
+		728404562B342BAC00D1B0C3 /* HYHBleSequenceOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 728404552B342BAC00D1B0C3 /* HYHBleSequenceOperator.m */; };
+		7285AD112B392A5C0085A375 /* HYHSequenceWriteOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285AD102B392A5C0085A375 /* HYHSequenceWriteOperator.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7280F1DE2B293EB600AC56F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7280F1BA2B293EB500AC56F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7280F1C12B293EB500AC56F7;
+			remoteInfo = FastBle;
+		};
+		7280F1E82B293EB600AC56F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7280F1BA2B293EB500AC56F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7280F1C12B293EB500AC56F7;
+			remoteInfo = FastBle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		72691D0F2B32C36400A43022 /* HYHBleRssiCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleRssiCallback.h; sourceTree = "<group>"; };
+		72691D102B32C36400A43022 /* HYHBleRssiCallback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleRssiCallback.m; sourceTree = "<group>"; };
+		727407B82B2A9D0100187381 /* HYHTimepiece.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHTimepiece.h; sourceTree = "<group>"; };
+		727407B92B2A9D0100187381 /* HYHTimepiece.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHTimepiece.m; sourceTree = "<group>"; };
+		727407BB2B2AA60C00187381 /* HYHBleLruDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleLruDictionary.h; sourceTree = "<group>"; };
+		727407BC2B2AA60C00187381 /* HYHBleLruDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleLruDictionary.m; sourceTree = "<group>"; };
+		727407BE2B2AD65B00187381 /* HYHThreadSafeDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHThreadSafeDictionary.h; sourceTree = "<group>"; };
+		727407BF2B2AD65B00187381 /* HYHThreadSafeDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHThreadSafeDictionary.m; sourceTree = "<group>"; };
+		727407C12B2AE72F00187381 /* HYHMultipleBluetoothController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHMultipleBluetoothController.h; sourceTree = "<group>"; };
+		727407C22B2AE72F00187381 /* HYHMultipleBluetoothController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHMultipleBluetoothController.m; sourceTree = "<group>"; };
+		727407C42B2AE95700187381 /* HYHBleBluetooth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleBluetooth.h; sourceTree = "<group>"; };
+		727407C52B2AE95700187381 /* HYHBleBluetooth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleBluetooth.m; sourceTree = "<group>"; };
+		727D77062B3131B7005DC6EC /* HYHBleOperator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleOperator.h; sourceTree = "<group>"; };
+		727D77072B3131B7005DC6EC /* HYHBleOperator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleOperator.m; sourceTree = "<group>"; };
+		727D770D2B313D4D005DC6EC /* HYHBleReadCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleReadCallback.h; sourceTree = "<group>"; };
+		727D770E2B313D4D005DC6EC /* HYHBleReadCallback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleReadCallback.m; sourceTree = "<group>"; };
+		727D77172B3143B1005DC6EC /* CBPeripheral+HYHBle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CBPeripheral+HYHBle.h"; sourceTree = "<group>"; };
+		727D77182B3143B1005DC6EC /* CBPeripheral+HYHBle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CBPeripheral+HYHBle.m"; sourceTree = "<group>"; };
+		727D771A2B31476B005DC6EC /* CBService+HYHBle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CBService+HYHBle.h"; sourceTree = "<group>"; };
+		727D771B2B31476B005DC6EC /* CBService+HYHBle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CBService+HYHBle.m"; sourceTree = "<group>"; };
+		727D771D2B3149F6005DC6EC /* HYHBleOperateCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleOperateCallback.h; sourceTree = "<group>"; };
+		727D771E2B3149F6005DC6EC /* HYHBleOperateCallback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleOperateCallback.m; sourceTree = "<group>"; };
+		727D77202B318A90005DC6EC /* HYHBleNotifyCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleNotifyCallback.h; sourceTree = "<group>"; };
+		727D77212B318A90005DC6EC /* HYHBleNotifyCallback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleNotifyCallback.m; sourceTree = "<group>"; };
+		727D77232B31B4CE005DC6EC /* HYHBleWriteCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleWriteCallback.h; sourceTree = "<group>"; };
+		727D77242B31B4CE005DC6EC /* HYHBleWriteCallback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleWriteCallback.m; sourceTree = "<group>"; };
+		727D77262B31C2DE005DC6EC /* HYHBleSplitWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleSplitWriter.h; sourceTree = "<group>"; };
+		727D77272B31C2DE005DC6EC /* HYHBleSplitWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleSplitWriter.m; sourceTree = "<group>"; };
+		727D772A2B31C6C6005DC6EC /* HYHDataUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHDataUtils.h; sourceTree = "<group>"; };
+		727D772B2B31C6C6005DC6EC /* HYHDataUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHDataUtils.m; sourceTree = "<group>"; };
+		727D772D2B31C6E6005DC6EC /* HYHQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYHQueue.h; sourceTree = "<group>"; };
+		727D772E2B31C6E6005DC6EC /* HYHQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYHQueue.m; sourceTree = "<group>"; };
+		728023BA2B2FF18B0036A3AB /* HYHBleError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleError.h; sourceTree = "<group>"; };
+		728023BB2B2FF18B0036A3AB /* HYHBleError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleError.m; sourceTree = "<group>"; };
+		728023BD2B30506C0036A3AB /* HYHBleConnectCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleConnectCallback.h; sourceTree = "<group>"; };
+		728023BE2B30506C0036A3AB /* HYHBleConnectCallback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleConnectCallback.m; sourceTree = "<group>"; };
+		728023C02B306FF00036A3AB /* HYHBleDiscoverCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleDiscoverCallback.h; sourceTree = "<group>"; };
+		728023C12B306FF00036A3AB /* HYHBleDiscoverCallback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleDiscoverCallback.m; sourceTree = "<group>"; };
+		7280F1C22B293EB500AC56F7 /* FastBle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastBle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7280F1C52B293EB500AC56F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7280F1C62B293EB500AC56F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7280F1C82B293EB500AC56F7 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		7280F1C92B293EB500AC56F7 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		7280F1CB2B293EB500AC56F7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7280F1CC2B293EB500AC56F7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7280F1CF2B293EB500AC56F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7280F1D12B293EB600AC56F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7280F1D42B293EB600AC56F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7280F1D62B293EB600AC56F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7280F1D72B293EB600AC56F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7280F1DD2B293EB600AC56F7 /* FastBleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastBleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7280F1E12B293EB600AC56F7 /* FastBleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastBleTests.m; sourceTree = "<group>"; };
+		7280F1E72B293EB600AC56F7 /* FastBleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastBleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7280F1EB2B293EB600AC56F7 /* FastBleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastBleUITests.m; sourceTree = "<group>"; };
+		7280F1ED2B293EB600AC56F7 /* FastBleUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastBleUITestsLaunchTests.m; sourceTree = "<group>"; };
+		7280F2012B29419A00AC56F7 /* HYHBleScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleScanner.h; sourceTree = "<group>"; };
+		7280F2022B29419A00AC56F7 /* HYHBleScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleScanner.m; sourceTree = "<group>"; };
+		7280F2082B29466200AC56F7 /* HYHBleDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleDevice.h; sourceTree = "<group>"; };
+		7280F2092B29466200AC56F7 /* HYHBleDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleDevice.m; sourceTree = "<group>"; };
+		7280F20B2B2951F100AC56F7 /* HYHBleScanRuleConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleScanRuleConfig.h; sourceTree = "<group>"; };
+		7280F20C2B2951F100AC56F7 /* HYHBleScanRuleConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleScanRuleConfig.m; sourceTree = "<group>"; };
+		7280F20E2B29594100AC56F7 /* HYHCentralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHCentralManager.h; sourceTree = "<group>"; };
+		7280F20F2B29594100AC56F7 /* HYHCentralManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHCentralManager.m; sourceTree = "<group>"; };
+		7280F2122B2960A100AC56F7 /* HYHBleOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleOptions.h; sourceTree = "<group>"; };
+		7280F2132B2960A100AC56F7 /* HYHBleOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleOptions.m; sourceTree = "<group>"; };
+		728404482B33F36500D1B0C3 /* HYHBlockingQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBlockingQueue.h; sourceTree = "<group>"; };
+		728404492B33F36500D1B0C3 /* HYHBlockingQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBlockingQueue.m; sourceTree = "<group>"; };
+		728404512B342B2700D1B0C3 /* HYHBleOperatorQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleOperatorQueue.h; sourceTree = "<group>"; };
+		728404522B342B2700D1B0C3 /* HYHBleOperatorQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleOperatorQueue.m; sourceTree = "<group>"; };
+		728404542B342BAC00D1B0C3 /* HYHBleSequenceOperator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleSequenceOperator.h; sourceTree = "<group>"; };
+		728404552B342BAC00D1B0C3 /* HYHBleSequenceOperator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleSequenceOperator.m; sourceTree = "<group>"; };
+		7285AD0F2B392A5C0085A375 /* HYHSequenceWriteOperator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHSequenceWriteOperator.h; sourceTree = "<group>"; };
+		7285AD102B392A5C0085A375 /* HYHSequenceWriteOperator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHSequenceWriteOperator.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7280F1BF2B293EB500AC56F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7280F1DA2B293EB600AC56F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7280F1E42B293EB600AC56F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		727D77142B3142F7005DC6EC /* category */ = {
+			isa = PBXGroup;
+			children = (
+				727D77172B3143B1005DC6EC /* CBPeripheral+HYHBle.h */,
+				727D77182B3143B1005DC6EC /* CBPeripheral+HYHBle.m */,
+				727D771A2B31476B005DC6EC /* CBService+HYHBle.h */,
+				727D771B2B31476B005DC6EC /* CBService+HYHBle.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		727D77292B31C69E005DC6EC /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				727D772D2B31C6E6005DC6EC /* HYHQueue.h */,
+				727D772E2B31C6E6005DC6EC /* HYHQueue.m */,
+				727D772A2B31C6C6005DC6EC /* HYHDataUtils.h */,
+				727D772B2B31C6C6005DC6EC /* HYHDataUtils.m */,
+				728404482B33F36500D1B0C3 /* HYHBlockingQueue.h */,
+				728404492B33F36500D1B0C3 /* HYHBlockingQueue.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		728023B72B2FF0AD0036A3AB /* exception */ = {
+			isa = PBXGroup;
+			children = (
+				728023BA2B2FF18B0036A3AB /* HYHBleError.h */,
+				728023BB2B2FF18B0036A3AB /* HYHBleError.m */,
+			);
+			path = exception;
+			sourceTree = "<group>";
+		};
+		7280F1B92B293EB500AC56F7 = {
+			isa = PBXGroup;
+			children = (
+				7280F1C42B293EB500AC56F7 /* FastBle */,
+				7280F1E02B293EB600AC56F7 /* FastBleTests */,
+				7280F1EA2B293EB600AC56F7 /* FastBleUITests */,
+				7280F1C32B293EB500AC56F7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7280F1C32B293EB500AC56F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7280F1C22B293EB500AC56F7 /* FastBle.app */,
+				7280F1DD2B293EB600AC56F7 /* FastBleTests.xctest */,
+				7280F1E72B293EB600AC56F7 /* FastBleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7280F1C42B293EB500AC56F7 /* FastBle */ = {
+			isa = PBXGroup;
+			children = (
+				7280F1FA2B293ED500AC56F7 /* Lib */,
+				7280F1C52B293EB500AC56F7 /* AppDelegate.h */,
+				7280F1C62B293EB500AC56F7 /* AppDelegate.m */,
+				7280F1C82B293EB500AC56F7 /* SceneDelegate.h */,
+				7280F1C92B293EB500AC56F7 /* SceneDelegate.m */,
+				7280F1CB2B293EB500AC56F7 /* ViewController.h */,
+				7280F1CC2B293EB500AC56F7 /* ViewController.m */,
+				7280F1CE2B293EB500AC56F7 /* Main.storyboard */,
+				7280F1D12B293EB600AC56F7 /* Assets.xcassets */,
+				7280F1D32B293EB600AC56F7 /* LaunchScreen.storyboard */,
+				7280F1D62B293EB600AC56F7 /* Info.plist */,
+				7280F1D72B293EB600AC56F7 /* main.m */,
+			);
+			path = FastBle;
+			sourceTree = "<group>";
+		};
+		7280F1E02B293EB600AC56F7 /* FastBleTests */ = {
+			isa = PBXGroup;
+			children = (
+				7280F1E12B293EB600AC56F7 /* FastBleTests.m */,
+			);
+			path = FastBleTests;
+			sourceTree = "<group>";
+		};
+		7280F1EA2B293EB600AC56F7 /* FastBleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7280F1EB2B293EB600AC56F7 /* FastBleUITests.m */,
+				7280F1ED2B293EB600AC56F7 /* FastBleUITestsLaunchTests.m */,
+			);
+			path = FastBleUITests;
+			sourceTree = "<group>";
+		};
+		7280F1FA2B293ED500AC56F7 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				7284044C2B341A0800D1B0C3 /* queue */,
+				727D77292B31C69E005DC6EC /* utils */,
+				727D77142B3142F7005DC6EC /* category */,
+				728023B72B2FF0AD0036A3AB /* exception */,
+				7280F2112B29608600AC56F7 /* commom */,
+				7280F2072B29464100AC56F7 /* data */,
+				7280F2002B293FBE00AC56F7 /* scan */,
+				7280F1FC2B293F4A00AC56F7 /* callback */,
+				7280F1FB2B293F3600AC56F7 /* bluetooth */,
+				7280F20E2B29594100AC56F7 /* HYHCentralManager.h */,
+				7280F20F2B29594100AC56F7 /* HYHCentralManager.m */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		7280F1FB2B293F3600AC56F7 /* bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				727407C12B2AE72F00187381 /* HYHMultipleBluetoothController.h */,
+				727407C22B2AE72F00187381 /* HYHMultipleBluetoothController.m */,
+				727407C42B2AE95700187381 /* HYHBleBluetooth.h */,
+				727407C52B2AE95700187381 /* HYHBleBluetooth.m */,
+				727D77062B3131B7005DC6EC /* HYHBleOperator.h */,
+				727D77072B3131B7005DC6EC /* HYHBleOperator.m */,
+				727D77262B31C2DE005DC6EC /* HYHBleSplitWriter.h */,
+				727D77272B31C2DE005DC6EC /* HYHBleSplitWriter.m */,
+			);
+			path = bluetooth;
+			sourceTree = "<group>";
+		};
+		7280F1FC2B293F4A00AC56F7 /* callback */ = {
+			isa = PBXGroup;
+			children = (
+				728023BD2B30506C0036A3AB /* HYHBleConnectCallback.h */,
+				728023BE2B30506C0036A3AB /* HYHBleConnectCallback.m */,
+				728023C02B306FF00036A3AB /* HYHBleDiscoverCallback.h */,
+				728023C12B306FF00036A3AB /* HYHBleDiscoverCallback.m */,
+				727D770D2B313D4D005DC6EC /* HYHBleReadCallback.h */,
+				727D770E2B313D4D005DC6EC /* HYHBleReadCallback.m */,
+				727D771D2B3149F6005DC6EC /* HYHBleOperateCallback.h */,
+				727D771E2B3149F6005DC6EC /* HYHBleOperateCallback.m */,
+				727D77202B318A90005DC6EC /* HYHBleNotifyCallback.h */,
+				727D77212B318A90005DC6EC /* HYHBleNotifyCallback.m */,
+				727D77232B31B4CE005DC6EC /* HYHBleWriteCallback.h */,
+				727D77242B31B4CE005DC6EC /* HYHBleWriteCallback.m */,
+				72691D0F2B32C36400A43022 /* HYHBleRssiCallback.h */,
+				72691D102B32C36400A43022 /* HYHBleRssiCallback.m */,
+			);
+			path = callback;
+			sourceTree = "<group>";
+		};
+		7280F2002B293FBE00AC56F7 /* scan */ = {
+			isa = PBXGroup;
+			children = (
+				7280F2012B29419A00AC56F7 /* HYHBleScanner.h */,
+				7280F2022B29419A00AC56F7 /* HYHBleScanner.m */,
+				7280F20B2B2951F100AC56F7 /* HYHBleScanRuleConfig.h */,
+				7280F20C2B2951F100AC56F7 /* HYHBleScanRuleConfig.m */,
+			);
+			path = scan;
+			sourceTree = "<group>";
+		};
+		7280F2072B29464100AC56F7 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				7280F2082B29466200AC56F7 /* HYHBleDevice.h */,
+				7280F2092B29466200AC56F7 /* HYHBleDevice.m */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		7280F2112B29608600AC56F7 /* commom */ = {
+			isa = PBXGroup;
+			children = (
+				7280F2122B2960A100AC56F7 /* HYHBleOptions.h */,
+				7280F2132B2960A100AC56F7 /* HYHBleOptions.m */,
+				727407B82B2A9D0100187381 /* HYHTimepiece.h */,
+				727407B92B2A9D0100187381 /* HYHTimepiece.m */,
+				727407BB2B2AA60C00187381 /* HYHBleLruDictionary.h */,
+				727407BC2B2AA60C00187381 /* HYHBleLruDictionary.m */,
+				727407BE2B2AD65B00187381 /* HYHThreadSafeDictionary.h */,
+				727407BF2B2AD65B00187381 /* HYHThreadSafeDictionary.m */,
+			);
+			path = commom;
+			sourceTree = "<group>";
+		};
+		7284044C2B341A0800D1B0C3 /* queue */ = {
+			isa = PBXGroup;
+			children = (
+				728404512B342B2700D1B0C3 /* HYHBleOperatorQueue.h */,
+				728404522B342B2700D1B0C3 /* HYHBleOperatorQueue.m */,
+				728404542B342BAC00D1B0C3 /* HYHBleSequenceOperator.h */,
+				728404552B342BAC00D1B0C3 /* HYHBleSequenceOperator.m */,
+				7285AD0F2B392A5C0085A375 /* HYHSequenceWriteOperator.h */,
+				7285AD102B392A5C0085A375 /* HYHSequenceWriteOperator.m */,
+			);
+			path = queue;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7280F1C12B293EB500AC56F7 /* FastBle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7280F1F12B293EB600AC56F7 /* Build configuration list for PBXNativeTarget "FastBle" */;
+			buildPhases = (
+				7280F1BE2B293EB500AC56F7 /* Sources */,
+				7280F1BF2B293EB500AC56F7 /* Frameworks */,
+				7280F1C02B293EB500AC56F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FastBle;
+			productName = FastBle;
+			productReference = 7280F1C22B293EB500AC56F7 /* FastBle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7280F1DC2B293EB600AC56F7 /* FastBleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7280F1F42B293EB600AC56F7 /* Build configuration list for PBXNativeTarget "FastBleTests" */;
+			buildPhases = (
+				7280F1D92B293EB600AC56F7 /* Sources */,
+				7280F1DA2B293EB600AC56F7 /* Frameworks */,
+				7280F1DB2B293EB600AC56F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7280F1DF2B293EB600AC56F7 /* PBXTargetDependency */,
+			);
+			name = FastBleTests;
+			productName = FastBleTests;
+			productReference = 7280F1DD2B293EB600AC56F7 /* FastBleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7280F1E62B293EB600AC56F7 /* FastBleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7280F1F72B293EB600AC56F7 /* Build configuration list for PBXNativeTarget "FastBleUITests" */;
+			buildPhases = (
+				7280F1E32B293EB600AC56F7 /* Sources */,
+				7280F1E42B293EB600AC56F7 /* Frameworks */,
+				7280F1E52B293EB600AC56F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7280F1E92B293EB600AC56F7 /* PBXTargetDependency */,
+			);
+			name = FastBleUITests;
+			productName = FastBleUITests;
+			productReference = 7280F1E72B293EB600AC56F7 /* FastBleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7280F1BA2B293EB500AC56F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1510;
+				TargetAttributes = {
+					7280F1C12B293EB500AC56F7 = {
+						CreatedOnToolsVersion = 15.1;
+					};
+					7280F1DC2B293EB600AC56F7 = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = 7280F1C12B293EB500AC56F7;
+					};
+					7280F1E62B293EB600AC56F7 = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = 7280F1C12B293EB500AC56F7;
+					};
+				};
+			};
+			buildConfigurationList = 7280F1BD2B293EB500AC56F7 /* Build configuration list for PBXProject "FastBle" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7280F1B92B293EB500AC56F7;
+			productRefGroup = 7280F1C32B293EB500AC56F7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7280F1C12B293EB500AC56F7 /* FastBle */,
+				7280F1DC2B293EB600AC56F7 /* FastBleTests */,
+				7280F1E62B293EB600AC56F7 /* FastBleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7280F1C02B293EB500AC56F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7280F1D52B293EB600AC56F7 /* LaunchScreen.storyboard in Resources */,
+				7280F1D22B293EB600AC56F7 /* Assets.xcassets in Resources */,
+				7280F1D02B293EB500AC56F7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7280F1DB2B293EB600AC56F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7280F1E52B293EB600AC56F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7280F1BE2B293EB500AC56F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				728023BC2B2FF18B0036A3AB /* HYHBleError.m in Sources */,
+				7280F2032B29419A00AC56F7 /* HYHBleScanner.m in Sources */,
+				727D770F2B313D4D005DC6EC /* HYHBleReadCallback.m in Sources */,
+				727407BA2B2A9D0100187381 /* HYHTimepiece.m in Sources */,
+				727407C02B2AD65B00187381 /* HYHThreadSafeDictionary.m in Sources */,
+				727407C62B2AE95700187381 /* HYHBleBluetooth.m in Sources */,
+				727D77282B31C2DE005DC6EC /* HYHBleSplitWriter.m in Sources */,
+				727D771C2B31476B005DC6EC /* CBService+HYHBle.m in Sources */,
+				728023BF2B30506C0036A3AB /* HYHBleConnectCallback.m in Sources */,
+				7280F1CD2B293EB500AC56F7 /* ViewController.m in Sources */,
+				7284044A2B33F36500D1B0C3 /* HYHBlockingQueue.m in Sources */,
+				7280F2142B2960A100AC56F7 /* HYHBleOptions.m in Sources */,
+				727D77192B3143B1005DC6EC /* CBPeripheral+HYHBle.m in Sources */,
+				728404562B342BAC00D1B0C3 /* HYHBleSequenceOperator.m in Sources */,
+				7285AD112B392A5C0085A375 /* HYHSequenceWriteOperator.m in Sources */,
+				727407C32B2AE72F00187381 /* HYHMultipleBluetoothController.m in Sources */,
+				727D77252B31B4CE005DC6EC /* HYHBleWriteCallback.m in Sources */,
+				727D77222B318A90005DC6EC /* HYHBleNotifyCallback.m in Sources */,
+				727D772C2B31C6C6005DC6EC /* HYHDataUtils.m in Sources */,
+				728023C22B306FF00036A3AB /* HYHBleDiscoverCallback.m in Sources */,
+				727D771F2B3149F6005DC6EC /* HYHBleOperateCallback.m in Sources */,
+				7280F1C72B293EB500AC56F7 /* AppDelegate.m in Sources */,
+				7280F1D82B293EB600AC56F7 /* main.m in Sources */,
+				7280F20A2B29466200AC56F7 /* HYHBleDevice.m in Sources */,
+				727D77082B3131B7005DC6EC /* HYHBleOperator.m in Sources */,
+				7280F1CA2B293EB500AC56F7 /* SceneDelegate.m in Sources */,
+				727407BD2B2AA60C00187381 /* HYHBleLruDictionary.m in Sources */,
+				728404532B342B2700D1B0C3 /* HYHBleOperatorQueue.m in Sources */,
+				7280F20D2B2951F100AC56F7 /* HYHBleScanRuleConfig.m in Sources */,
+				72691D112B32C36400A43022 /* HYHBleRssiCallback.m in Sources */,
+				7280F2102B29594100AC56F7 /* HYHCentralManager.m in Sources */,
+				727D772F2B31C6E6005DC6EC /* HYHQueue.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7280F1D92B293EB600AC56F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7280F1E22B293EB600AC56F7 /* FastBleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7280F1E32B293EB600AC56F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7280F1EE2B293EB600AC56F7 /* FastBleUITestsLaunchTests.m in Sources */,
+				7280F1EC2B293EB600AC56F7 /* FastBleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7280F1DF2B293EB600AC56F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7280F1C12B293EB500AC56F7 /* FastBle */;
+			targetProxy = 7280F1DE2B293EB600AC56F7 /* PBXContainerItemProxy */;
+		};
+		7280F1E92B293EB600AC56F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7280F1C12B293EB500AC56F7 /* FastBle */;
+			targetProxy = 7280F1E82B293EB600AC56F7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7280F1CE2B293EB500AC56F7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7280F1CF2B293EB500AC56F7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7280F1D32B293EB600AC56F7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7280F1D42B293EB600AC56F7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7280F1EF2B293EB600AC56F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7280F1F02B293EB600AC56F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7280F1F22B293EB600AC56F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L8AJVTF9HZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FastBle/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "use bluetooth";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "use bluetooth";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyuhui.FastBle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7280F1F32B293EB600AC56F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L8AJVTF9HZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FastBle/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "use bluetooth";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "use bluetooth";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyuhui.FastBle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7280F1F52B293EB600AC56F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L8AJVTF9HZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyuhui.FastBleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FastBle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FastBle";
+			};
+			name = Debug;
+		};
+		7280F1F62B293EB600AC56F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L8AJVTF9HZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyuhui.FastBleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FastBle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FastBle";
+			};
+			name = Release;
+		};
+		7280F1F82B293EB600AC56F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L8AJVTF9HZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyuhui.FastBleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FastBle;
+			};
+			name = Debug;
+		};
+		7280F1F92B293EB600AC56F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L8AJVTF9HZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyuhui.FastBleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FastBle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7280F1BD2B293EB500AC56F7 /* Build configuration list for PBXProject "FastBle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7280F1EF2B293EB600AC56F7 /* Debug */,
+				7280F1F02B293EB600AC56F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7280F1F12B293EB600AC56F7 /* Build configuration list for PBXNativeTarget "FastBle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7280F1F22B293EB600AC56F7 /* Debug */,
+				7280F1F32B293EB600AC56F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7280F1F42B293EB600AC56F7 /* Build configuration list for PBXNativeTarget "FastBleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7280F1F52B293EB600AC56F7 /* Debug */,
+				7280F1F62B293EB600AC56F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7280F1F72B293EB600AC56F7 /* Build configuration list for PBXNativeTarget "FastBleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7280F1F82B293EB600AC56F7 /* Debug */,
+				7280F1F92B293EB600AC56F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7280F1BA2B293EB500AC56F7 /* Project object */;
+}

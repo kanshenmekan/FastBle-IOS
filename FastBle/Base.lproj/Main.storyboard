@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAW-QH-upY">
+                                <rect key="frame" x="167" y="59" width="59" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="搜索"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jps-WN-rQE">
+                                <rect key="frame" x="167" y="104" width="59" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="连接"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCH-kZ-kwY">
+                                <rect key="frame" x="175.66666666666666" y="149" width="42" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="读"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ll8-s8-aM1">
+                                <rect key="frame" x="175.66666666666666" y="194" width="42" height="34.333333333333343"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="写"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kL-Qx-Lbd">
+                                <rect key="frame" x="167" y="238.33333333333334" width="59" height="35.000000000000028"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="通知"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8e2-Mu-bV7">
+                                <rect key="frame" x="167" y="283.33333333333331" width="59" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="停止"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OK4-dR-GIe">
+                                <rect key="frame" x="167" y="328.33333333333331" width="59" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="信号"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1g4-I0-qFK">
+                                <rect key="frame" x="166" y="373.33333333333331" width="61" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="MTU"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KAW-QH-upY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1bL-Xk-PM3"/>
+                            <constraint firstItem="Jps-WN-rQE" firstAttribute="top" secondItem="KAW-QH-upY" secondAttribute="bottom" constant="10" id="2rR-ce-uYK"/>
+                            <constraint firstItem="8e2-Mu-bV7" firstAttribute="top" secondItem="1kL-Qx-Lbd" secondAttribute="bottom" constant="10" id="Eqo-BD-B4H"/>
+                            <constraint firstItem="1kL-Qx-Lbd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J9j-i1-9Zc"/>
+                            <constraint firstItem="JCH-kZ-kwY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LBR-k7-Z3e"/>
+                            <constraint firstItem="8e2-Mu-bV7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P2Y-Dy-c6I"/>
+                            <constraint firstItem="KAW-QH-upY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UDO-D8-QOq"/>
+                            <constraint firstItem="1g4-I0-qFK" firstAttribute="top" secondItem="OK4-dR-GIe" secondAttribute="bottom" constant="10" id="a2B-90-ar8"/>
+                            <constraint firstItem="Ll8-s8-aM1" firstAttribute="top" secondItem="JCH-kZ-kwY" secondAttribute="bottom" constant="10" id="c4M-J4-XDq"/>
+                            <constraint firstItem="1kL-Qx-Lbd" firstAttribute="top" secondItem="Ll8-s8-aM1" secondAttribute="bottom" constant="10" id="ca2-BG-6vV"/>
+                            <constraint firstItem="JCH-kZ-kwY" firstAttribute="top" secondItem="Jps-WN-rQE" secondAttribute="bottom" constant="10" id="r1z-rA-DLw"/>
+                            <constraint firstItem="Ll8-s8-aM1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tCZ-EQ-EBo"/>
+                            <constraint firstItem="Jps-WN-rQE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="twZ-b5-yaq"/>
+                            <constraint firstItem="1g4-I0-qFK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uya-rQ-0fG"/>
+                            <constraint firstItem="OK4-dR-GIe" firstAttribute="top" secondItem="8e2-Mu-bV7" secondAttribute="bottom" constant="10" id="x1Q-wN-qW2"/>
+                            <constraint firstItem="OK4-dR-GIe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yTl-gj-oU4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="connectBtn" destination="Jps-WN-rQE" id="HBn-jU-w9w"/>
+                        <outlet property="mtuBtn" destination="1g4-I0-qFK" id="7Ta-Cp-RyH"/>
+                        <outlet property="notifyBtn" destination="1kL-Qx-Lbd" id="4WL-i9-coh"/>
+                        <outlet property="readBtn" destination="JCH-kZ-kwY" id="ubE-Zb-5ii"/>
+                        <outlet property="rssiBtn" destination="OK4-dR-GIe" id="Tuw-FL-XcQ"/>
+                        <outlet property="scanBtn" destination="KAW-QH-upY" id="ais-NU-4d5"/>
+                        <outlet property="stopBtn" destination="8e2-Mu-bV7" id="Dlv-x1-Ekq"/>
+                        <outlet property="writeBtn" destination="Ll8-s8-aM1" id="sm4-yE-eid"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="107.63358778625954" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
