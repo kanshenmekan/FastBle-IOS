@@ -39,7 +39,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT"
+  spec.license      = 'MIT'
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -63,7 +63,7 @@ Pod::Spec.new do |spec|
   #  If this Pod runs only on iOS or OS X, then specify the platform and
   #  the deployment target. You can optionally include the target after the platform.
   #
-
+  spec.platform     = :ios, "13.0"
   # spec.platform     = :ios
   # spec.platform     = :ios, "5.0"
 
@@ -80,7 +80,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/kanshenmekan/FastBle-IOS.git", :tag => "1.0.0" }
+  spec.source       = { :git => "https://github.com/kanshenmekan/FastBle-IOS.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -92,7 +92,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files  = "Classes/*.{h,m}", "Classes/**/*.{h,m}"
-  spec.public_header_files = "Classes/*.h","Classes/queue/HYHSequenceWriteOperator.h"
+  spec.public_header_files = "Classes/*.h","Classes/**/*.h"
   # spec.public_header_files = "Classes/**/*.h"
 
 
