@@ -137,7 +137,7 @@
         head[20] = 0x20;
         NSData *data = [NSData dataWithBytes:head length:25];
         for (int i = 0; i<50; i++) {
-            HYHSequenceWriteOperator *se = [[HYHSequenceWriteOperator alloc]initWithServiceUUID:[CBUUID UUIDWithString:@"FFE0"] characteristicUUID:[CBUUID UUIDWithString:@"FFE1"]];
+            HYHSequenceWriteOperator *se = [[HYHSequenceWriteOperator alloc]initWithServiceUUID:[CBUUID UUIDWithString:@"FFE0"] characteristicUUID:[CBUUID UUIDWithString:@"0000ffe1-0000-1000-8000-00805F9B34FB"]];
             se.data = data;
             se.continuous = YES;
             [HYHCentralManager.sharedBleManager addOperatorToQueue:self.oldDevice sequenceBleOperator:se];

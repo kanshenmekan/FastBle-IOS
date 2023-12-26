@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSEnumerator *)keyEnumerator;
 - (void)removeAllObjects;
 - (id)copy;
+-(NSArray<ObjectType> *)allValues;
+-(NSArray<KeyType> *)allKeys;
 @end
 
 NS_ASSUME_NONNULL_END

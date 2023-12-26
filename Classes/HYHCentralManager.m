@@ -380,6 +380,20 @@ static id _instace;
 }
 
 #pragma mark - 功能性方法
+-(NSArray<HYHBleDevice *> *)getAllConnectedDevice{
+    NSMutableArray<HYHBleDevice *> *array = [NSMutableArray array];
+    for (HYHBleBluetooth *bleBluetooth in [self.multipleBluetoothController.bleLruDictionary allValues]) {
+        [array addObject:bleBluetooth.bleDevice];
+    }
+    return array;
+}
+-(NSArray<HYHBleDevice *> *)getAllConnectingDevice{
+    NSMutableArray<HYHBleDevice *> *array = [NSMutableArray array];
+    for (HYHBleBluetooth *bleBluetooth in [self.multipleBluetoothController.connectingDictionary allValues]) {
+        [array addObject:bleBluetooth.bleDevice];
+    }
+    return array;
+}
 -(void)disconnect:(HYHBleDevice *)bleDevice{
     [self.multipleBluetoothController disconnect:bleDevice];
 }
@@ -400,5 +414,47 @@ static id _instace;
         }
     }
     return nil;
+}
+-(void)setBleConnectCallback:(HYHBleDevice *)bleDevice callback:(HYHBleConnectCallback *)bleConnectCallback{
+    HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
+    if (bleBluetooth != nil) {
+        bleBluetooth.connectCallback = bleConnectCallback;
+    }
+}
+-(void)setBleDiscoverCallback:(HYHBleDevice *)bleDevice callback:(HYHBleDiscoverCallback *)bleDiscoverCallback{
+    HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
+    if (bleBluetooth != nil) {
+        bleBluetooth.discoverCallback = bleDiscoverCallback;
+    }
+}
+-(void)removeBleReadCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleReadCallback *)bleReadCallback{
+    HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
+    if (bleBluetooth != nil) {
+        [bleBluetooth removeReadOperator:characteristic.UUID.UUIDString];
+    }
+}
+-(void)removeBleWriteCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleWriteCallback *)bleWriteCallback{
+    HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
+    if (bleBluetooth != nil) {
+        [bleBluetooth removeWriteOperator:characteristic.UUID.UUIDString];
+    }
+}
+-(void)removeBleNotifyCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleNotifyCallback *)bleNotifyCallback{
+    HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
+    if (bleBluetooth != nil) {
+        [bleBluetooth removeNotifyOperator:characteristic.UUID.UUIDString];
+    }
+}
+-(void)removeBleRssiCallback:(HYHBleDevice *)bleDevice callback:(HYHBleRssiCallback *)bleRssiCallback{
+    HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
+    if (bleBluetooth != nil) {
+        bleBluetooth.bleRssiOperator = nil;
+    }
+}
+-(void)clearCharacterCallback:(HYHBleDevice *)bleDevice{
+    HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
+    if (bleBluetooth != nil) {
+        [bleBluetooth clearCharacterOperator];
+    }
 }
 @end

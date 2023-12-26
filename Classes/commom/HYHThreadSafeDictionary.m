@@ -74,6 +74,18 @@
 -(NSString *)description{
     return self.dictionary.description;
 }
+-(NSArray *)allValues{
+    dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
+    NSArray *values = _dictionary.allValues;
+    dispatch_semaphore_signal(_semaphore);
+    return values;
+}
+-(NSArray *)allKeys{
+    dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
+    NSArray *keys = _dictionary.allKeys;
+    dispatch_semaphore_signal(_semaphore);
+    return keys;
+}
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])buffer count:(NSUInteger)len {
     @synchronized (self) {
         return [self.dictionary countByEnumeratingWithState:state objects:buffer count:len];

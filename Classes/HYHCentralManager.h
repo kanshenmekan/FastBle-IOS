@@ -30,8 +30,8 @@ typedef BOOL(^HYHOnScanFilterBlock)(HYHBleDevice *bleDevice);
 + (instancetype)sharedBleManager;
 -(void)initManager;
 @property (strong,nonatomic,readonly) CBCentralManager *centralManager;
-@property (nonatomic, copy) HYHCentralManagerDidUpdateStateBlock centralManagerDidUpdateStateBlock;
-@property (nonatomic, copy) HYHCentralManagerwillRestoreStateBlock centralManagerwillRestoreStateBlock;
+@property (nonatomic, copy,nullable) HYHCentralManagerDidUpdateStateBlock centralManagerDidUpdateStateBlock;
+@property (nonatomic, copy,nullable) HYHCentralManagerwillRestoreStateBlock centralManagerwillRestoreStateBlock;
 -(void)setBleScanCofig:(HYHBleScanRuleConfig *)bleScanCofig;
 -(void)startLeScan;
 -(void)stopLeScan;
@@ -90,11 +90,21 @@ typedef BOOL(^HYHOnScanFilterBlock)(HYHBleDevice *bleDevice);
 -(void)removeOperatorQueue:(HYHBleDevice *)bleDevice identifier:(nullable NSString *)identifier;
 -(void)removeOperatorQueue:(HYHBleDevice *)bleDevice;
 
+-(NSArray<HYHBleDevice *> *)getAllConnectedDevice;
+-(NSArray<HYHBleDevice *> *)getAllConnectingDevice;
 -(void)disconnect:(HYHBleDevice *)bleDevice;
 -(void)disconnectAllDevice;
 -(void)cancelConnecting:(HYHBleDevice *)bleDevice;
 -(void)cancelAllConnectingDevice;
 -(nullable HYHBleDevice *)getConnectedDeviceWithIdentifier:(NSString *)identifier;
+
+-(void)setBleConnectCallback:(HYHBleDevice *)bleDevice callback:(HYHBleConnectCallback *)bleConnectCallback;
+-(void)setBleDiscoverCallback:(HYHBleDevice *)bleDevice callback:(HYHBleDiscoverCallback *)bleDiscoverCallback;
+-(void)removeBleReadCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleReadCallback *)bleReadCallback;
+-(void)removeBleWriteCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleWriteCallback *)bleWriteCallback;
+-(void)removeBleNotifyCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleNotifyCallback *)bleNotifyCallback;
+-(void)removeBleRssiCallback:(HYHBleDevice *)bleDevice callback:(HYHBleRssiCallback *)bleRssiCallback;
+-(void)clearCharacterCallback:(HYHBleDevice *)bleDevice;
 @end
 
 NS_ASSUME_NONNULL_END
