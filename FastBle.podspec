@@ -24,7 +24,9 @@ Pod::Spec.new do |spec|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = "为ios蓝牙开发提供简单的封装，实现多连接管理，队列发送"
+  spec.description  = <<-DESC
+                    为ios蓝牙开发提供简单的封装，实现多连接管理，队列发送
+                    DESC
 
   spec.homepage     = "https://github.com/kanshenmekan/FastBle-IOS"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -37,11 +39,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "{ :type => 'MIT', :text => <<-LICENSE
-                   Copyright 2023
-                   Permission is granted to use this lib
-                 LICENSE
-               }"
+  spec.license      = "MIT"
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -82,7 +80,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/kanshenmekan/FastBle-IOS", :tag => "1.0.0" }
+  spec.source       = { :git => "https://github.com/kanshenmekan/FastBle-IOS.git", :tag => "1.0.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -93,8 +91,8 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Lib/*.{h,m}", "Lib/**/*.{h,m}"
-  spec.public_header_files = "Lib/*.h","Lib/queue/HYHSequenceWriteOperator.h"
+  spec.source_files  = "Classes/*.{h,m}", "Classes/**/*.{h,m}"
+  spec.public_header_files = "Classes/*.h","Classes/queue/HYHSequenceWriteOperator.h"
   # spec.public_header_files = "Classes/**/*.h"
 
 
@@ -117,7 +115,7 @@ Pod::Spec.new do |spec|
   #  Link your library with frameworks, or libraries. Libraries do not include
   #  the lib prefix of their name.
   #
-
+    spec.frameworks  = "Foundation","CoreBluetooth"
   # spec.framework  = "SomeFramework"
   # spec.frameworks = "SomeFramework", "AnotherFramework"
 
@@ -130,7 +128,7 @@ Pod::Spec.new do |spec|
   #  If your library depends on compiler flags you can set them in the xcconfig hash
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
-
+    spec.requires_arc = true
   # spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }

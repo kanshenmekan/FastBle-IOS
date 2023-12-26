@@ -201,6 +201,7 @@
 		7280F1B92B293EB500AC56F7 = {
 			isa = PBXGroup;
 			children = (
+				7280F1FA2B293ED500AC56F7 /* Classes */,
 				7280F1C42B293EB500AC56F7 /* FastBle */,
 				7280F1E02B293EB600AC56F7 /* FastBleTests */,
 				7280F1EA2B293EB600AC56F7 /* FastBleUITests */,
@@ -221,7 +222,6 @@
 		7280F1C42B293EB500AC56F7 /* FastBle */ = {
 			isa = PBXGroup;
 			children = (
-				7280F1FA2B293ED500AC56F7 /* Lib */,
 				7280F1C52B293EB500AC56F7 /* AppDelegate.h */,
 				7280F1C62B293EB500AC56F7 /* AppDelegate.m */,
 				7280F1C82B293EB500AC56F7 /* SceneDelegate.h */,
@@ -254,7 +254,7 @@
 			path = FastBleUITests;
 			sourceTree = "<group>";
 		};
-		7280F1FA2B293ED500AC56F7 /* Lib */ = {
+		7280F1FA2B293ED500AC56F7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				7284044C2B341A0800D1B0C3 /* queue */,
@@ -269,7 +269,7 @@
 				7280F20E2B29594100AC56F7 /* HYHCentralManager.h */,
 				7280F20F2B29594100AC56F7 /* HYHCentralManager.m */,
 			);
-			path = Lib;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		7280F1FB2B293F3600AC56F7 /* bluetooth */ = {
