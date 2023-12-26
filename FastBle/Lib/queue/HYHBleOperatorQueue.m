@@ -16,6 +16,7 @@
 @property (strong,nonatomic) dispatch_semaphore_t delaySemaphore;
 @property (strong,nonatomic) HYHBleSequenceOperator *currentTask;
 @property (weak,nonatomic) HYHBleBluetooth *bleBluetooth;
+@property (assign,nonatomic) BOOL hasDelay;
 @end
 
 @implementation HYHBleOperatorQueue
@@ -27,6 +28,7 @@
         _threadQueue = dispatch_queue_create([key cStringUsingEncoding:NSUTF8StringEncoding], DISPATCH_QUEUE_SERIAL);
         _delaySemaphore = dispatch_semaphore_create(0);
         _taskQueue = [[HYHBlockingQueue alloc]init];
+        _hasDelay = NO;
         self.bleBluetooth = bleBluetooth;
     }
     return self;
@@ -53,7 +55,9 @@
                 [strongSelf.condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:task.timeout/1000.0]];
             }
             if (task.delay > 0 && strongSelf.isActive) {
+                strongSelf.hasDelay = YES;
                 dispatch_semaphore_wait(strongSelf.delaySemaphore, dispatch_time(DISPATCH_TIME_NOW, task.delay * NSEC_PER_MSEC));
+                strongSelf.hasDelay = NO;
             }
         }
         [strongSelf.condition unlock];
@@ -69,6 +73,10 @@
 }
 -(void)pause{
     self.isActive = NO;
+    [self.condition signal];
+    if (self.hasDelay) {
+        dispatch_semaphore_signal(self.delaySemaphore);
+    }
 }
 -(void)remove:(HYHBleSequenceOperator *)operator{
   [self.taskQueue remove:operator];

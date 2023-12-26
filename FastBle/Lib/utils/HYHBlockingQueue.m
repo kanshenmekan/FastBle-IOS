@@ -37,7 +37,9 @@
     @synchronized(self.dequeueLock) {
         dispatch_semaphore_wait(self.queueSemaphore, DISPATCH_TIME_FOREVER);
         object = _queue.firstObject;
-        [_queue removeObjectAtIndex:0];
+        if (object != nil) {
+            [_queue removeObjectAtIndex:0];
+        }
     }
     return object;
 }

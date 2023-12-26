@@ -24,10 +24,9 @@ Pod::Spec.new do |spec|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = <<-DESC
-                   DESC
+  spec.description  = "为ios蓝牙开发提供简单的封装，实现多连接管理，队列发送"
 
-  spec.homepage     = "http://EXAMPLE/FastBle"
+  spec.homepage     = "https://github.com/kanshenmekan/FastBle-IOS"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,7 +37,11 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = "{ :type => 'MIT', :text => <<-LICENSE
+                   Copyright 2023
+                   Permission is granted to use this lib
+                 LICENSE
+               }"
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -52,9 +55,9 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "gtpower" => "1207769754@qq.com" }
-  # Or just: spec.author    = "gtpower"
-  # spec.authors            = { "gtpower" => "1207769754@qq.com" }
+  spec.author             = { "kanshenmekan" => "1207769754@qq.com" }
+  # Or just: spec.author    = "kanshenmekan"
+  # spec.authors            = { "kanshenmekan" => "1207769754@qq.com" }
   # spec.social_media_url   = "https://twitter.com/gtpower"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -79,7 +82,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/FastBle.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/kanshenmekan/FastBle-IOS", :tag => "1.0.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,9 +93,8 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
-
+  spec.source_files  = "Lib/*.{h,m}", "Lib/**/*.{h,m}"
+  spec.public_header_files = "Lib/*.h","Lib/queue/HYHSequenceWriteOperator.h"
   # spec.public_header_files = "Classes/**/*.h"
 
 
