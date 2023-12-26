@@ -7,6 +7,7 @@
 
 #import "HYHSequenceWriteOperator.h"
 #import "HYHBleOperator.h"
+#import "HYHBleOperatorQueue.h"
 @interface HYHSequenceWriteOperator()
 @property (strong,nonatomic) HYHBleWriteCallback *wrappedBleWriteCallback;
 @end
@@ -23,7 +24,7 @@
         _continueWhenLastFail = NO;
         _intervalBetweenTwoPackage = 0;
         _writeType = HYHBleOperateWriteTypeDefault;
-        self.delay = 100;
+        self.delay = 0;
         self.continuous = NO;
         self.timeout = 3000;
         self.wrappedBleWriteCallback = [[HYHBleWriteCallback alloc]init];
@@ -33,8 +34,8 @@
                 weakSelf.writeCallback.bleWriteSuccessBlock(bleDevice, characteristic, current, total, justWrite, data);
             }
             if(current == total){
-                if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(bleOperatorTaskEnd:result:)]) {
-                    [weakSelf.delegate bleOperatorTaskEnd:weakSelf result:YES];
+                if (weakSelf.operatorQueue) {
+                    [weakSelf.operatorQueue bleOperatorTaskEnd:weakSelf result:YES];
                 }
             }
         };
@@ -43,8 +44,8 @@
                 weakSelf.writeCallback.bleWriteFailureBlock(bleDevice, characteristic, error, current, total, justWrite, data, isTotalFail);
             }
             if (isTotalFail) {
-                if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(bleOperatorTaskEnd:result:)]) {
-                    [weakSelf.delegate bleOperatorTaskEnd:weakSelf result:NO];
+                if (weakSelf.operatorQueue) {
+                    [weakSelf.operatorQueue bleOperatorTaskEnd:weakSelf result:NO];
                 }
             }
         };
@@ -56,8 +57,8 @@
         return;
     }
     if (self.serviceUUID == nil || self.characteristicUUID == nil) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(bleOperatorTaskEnd:result:)]) {
-            [self.delegate bleOperatorTaskEnd:self result:NO];
+        if (self.operatorQueue) {
+            [self.operatorQueue bleOperatorTaskEnd:self result:NO];
         }
         return;
     }

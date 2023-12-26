@@ -167,7 +167,6 @@
             HYHSequenceWriteOperator *se = [[HYHSequenceWriteOperator alloc]initWithServiceUUID:[CBUUID UUIDWithString:@"FFE0"] characteristicUUID:[CBUUID UUIDWithString:@"FFE1"]];
             se.data = data;
             se.continuous = YES;
-            se.delay = 1000;
             [HYHCentralManager.sharedBleManager addOperatorToQueue:self.oldDevice sequenceBleOperator:se];
         }
 //        [HYHCentralManager.sharedBleManager write:self.oldDevice serviceUUID:[CBUUID UUIDWithString:@"FFE0"] characteristicUUID:[CBUUID UUIDWithString:@"FFE1"] data:data writeType:CBCharacteristicWriteWithResponse];

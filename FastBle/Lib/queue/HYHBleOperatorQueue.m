@@ -8,7 +8,7 @@
 #import "HYHBleOperatorQueue.h"
 #import "HYHBlockingQueue.h"
 
-@interface HYHBleOperatorQueue()<HYHBleSequenceOperatorDelegate>
+@interface HYHBleOperatorQueue()
 @property (strong,nonatomic) NSCondition *condition;
 @property (strong,nonatomic) HYHBlockingQueue<HYHBleSequenceOperator *> *taskQueue;
 @property (assign,nonatomic) BOOL isActive;
@@ -83,6 +83,7 @@
 }
 -(void)offer:(HYHBleSequenceOperator *)sequenceOperator{
     if(self.isActive){
+        sequenceOperator.operatorQueue = self;
         [self.taskQueue enqueue:sequenceOperator];
     }
 }

@@ -17,6 +17,7 @@
     _timeout = timeout;
 }
 - (void)execute:(nonnull HYHBleBluetooth *)bleBluetooth {
+
 }
 
 @end
