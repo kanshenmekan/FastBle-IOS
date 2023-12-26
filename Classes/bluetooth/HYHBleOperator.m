@@ -153,7 +153,4 @@ NSInteger const HYHBleOperateWriteSingleData = 1;
     [self stopOperateTimer];
     self.operateTimer = nil;
 }
--(void)dealloc{
-    NSLog(@"%@ dealloc",self);
-}
 @end

@@ -95,7 +95,4 @@
         [self.taskQueue enqueue:sequenceOperator];
     }
 }
--(void)dealloc{
-    NSLog(@"%@ dealloc",self);
-}
 @end

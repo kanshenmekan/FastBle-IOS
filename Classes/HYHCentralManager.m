@@ -378,4 +378,27 @@ static id _instace;
         }
     }
 }
+
+#pragma mark - 功能性方法
+-(void)disconnect:(HYHBleDevice *)bleDevice{
+    [self.multipleBluetoothController disconnect:bleDevice];
+}
+-(void)disconnectAllDevice{
+    [self.multipleBluetoothController disconnectAllDevice];
+}
+-(void)cancelConnecting:(HYHBleDevice *)bleDevice{
+    [self.multipleBluetoothController cancelConnecting:bleDevice];
+}
+-(void)cancelAllConnectingDevice{
+    [self.multipleBluetoothController cancelAllConnectingDevice];
+}
+-(nullable HYHBleDevice *)getConnectedDeviceWithIdentifier:(NSString *)identifier{
+    for (NSString *key in self.multipleBluetoothController.bleLruDictionary) {
+        HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:key];
+        if ([bleBluetooth.bleDevice.peripheral.identifier.UUIDString isEqualToString:identifier]) {
+            return bleBluetooth.bleDevice;
+        }
+    }
+    return nil;
+}
 @end

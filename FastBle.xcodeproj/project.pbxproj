@@ -66,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		72116F7A2B3A8D3D000B0F2C /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		72116F7B2B3A9455000B0F2C /* FastBle.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = FastBle.podspec; sourceTree = "<group>"; };
 		72691D0F2B32C36400A43022 /* HYHBleRssiCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHBleRssiCallback.h; sourceTree = "<group>"; };
 		72691D102B32C36400A43022 /* HYHBleRssiCallback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYHBleRssiCallback.m; sourceTree = "<group>"; };
 		727407B82B2A9D0100187381 /* HYHTimepiece.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYHTimepiece.h; sourceTree = "<group>"; };
@@ -202,6 +203,7 @@
 		7280F1B92B293EB500AC56F7 = {
 			isa = PBXGroup;
 			children = (
+				72116F7B2B3A9455000B0F2C /* FastBle.podspec */,
 				72116F7A2B3A8D3D000B0F2C /* LICENSE */,
 				7280F1FA2B293ED500AC56F7 /* Classes */,
 				7280F1C42B293EB500AC56F7 /* FastBle */,

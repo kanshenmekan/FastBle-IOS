@@ -111,33 +111,6 @@
     [self.stopBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.rssiBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.mtuBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    HYHBlockingQueue<NSString *> *queue = [[HYHBlockingQueue alloc]init];
-//    for (int i = 0; i<10; i++) {
-//        [queue enqueue:[NSString stringWithFormat:@"%d",i]];
-//    }
-////    NSCondition *condition = [[NSCondition alloc] init];
-////
-////    // 在另一个线程中发送信号
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        while (queue.count>0) {
-//            NSLog(@"%@",[queue dequeue]);
-//            sleep(2);
-//        }
-//    });
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [queue clear];
-//    });
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        [condition lock];
-//        [condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-//        NSLog(@"Finished waiting.1");
-//    });
-//    
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//            sleep(10);
-//            [condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
-//            NSLog(@"Finished waiting.2");
-//        });
 }
 -(void)btnClick:(UIView *)view{
     if (view == self.scanBtn) {

@@ -16,7 +16,7 @@
 #import "HYHBleNotifyCallback.h"
 #import "HYHBleWriteCallback.h"
 #import "HYHBleRssiCallback.h"
-#import "HYHBleSequenceOperator.h"
+#import "HYHSequenceWriteOperator.h"
 NS_ASSUME_NONNULL_BEGIN
 typedef void (^HYHCentralManagerDidUpdateStateBlock)(CBCentralManager *central);
 typedef BOOL(^HYHCentralManagerwillRestoreStateBlock)(CBCentralManager *central,NSArray<HYHBleDevice *> *restoreDevices);
@@ -89,6 +89,12 @@ typedef BOOL(^HYHOnScanFilterBlock)(HYHBleDevice *bleDevice);
 -(void)addOperatorToQueue:(HYHBleDevice *)bleDevice sequenceBleOperator:(HYHBleSequenceOperator *)sequenceBleOperator;
 -(void)removeOperatorQueue:(HYHBleDevice *)bleDevice identifier:(nullable NSString *)identifier;
 -(void)removeOperatorQueue:(HYHBleDevice *)bleDevice;
+
+-(void)disconnect:(HYHBleDevice *)bleDevice;
+-(void)disconnectAllDevice;
+-(void)cancelConnecting:(HYHBleDevice *)bleDevice;
+-(void)cancelAllConnectingDevice;
+-(nullable HYHBleDevice *)getConnectedDeviceWithIdentifier:(NSString *)identifier;
 @end
 
 NS_ASSUME_NONNULL_END
