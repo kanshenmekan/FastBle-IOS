@@ -46,14 +46,9 @@
     [self.bleLruDictionary removeObjectForKey:bleBluetooth.deviceKey];
 }
 -(void)cancelConnecting:(HYHBleDevice *)device{
-    if (!device.isConnecting) {
-        return;
-    }
     HYHBleBluetooth *bleBluetooth = [self.connectingDictionary objectForKey:device.deviceKey];
     if (bleBluetooth != nil) {
         [bleBluetooth cancelConnect];
-    }else{
-        [HYHCentralManager.sharedBleManager.centralManager cancelPeripheralConnection:device.peripheral];
     }
 }
 -(void)cancelAllConnectingDevice{
@@ -74,11 +69,17 @@
         if (bleBluetooth != nil) {
             [bleBluetooth disconnect];
         }
-    }else{
-        
     }
 }
-
+-(void)cancelOrDisconnect:(HYHBleDevice *)bleDevice{
+    if ([self.connectingDictionary containKey:bleDevice.deviceKey]) {
+        [self cancelConnecting:bleDevice];
+    }else if ([self.bleLruDictionary containKey:bleDevice.deviceKey]){
+        [self disconnect:bleDevice];
+    }else{
+        [HYHCentralManager.sharedBleManager.centralManager cancelPeripheralConnection:bleDevice.peripheral];
+    }
+}
 -(void)disconnectAllDevice{
     for (NSString *key in self.bleLruDictionary) {
         [self disconnect:[self.bleLruDictionary objectForKey:key].bleDevice];

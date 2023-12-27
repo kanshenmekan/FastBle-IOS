@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)cancelAllConnectingDevice;
 -(void)disconnect:(HYHBleDevice *)bleDevice;
 -(void)disconnectAllDevice;
+-(void)cancelOrDisconnect:(HYHBleDevice *)bleDevice;
 -(void)destroy;
 -(void)onBleOff;
 @end

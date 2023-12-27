@@ -6,6 +6,7 @@
 //
 
 #import "HYHBleDevice.h"
+#import "HYHCentralManager.h"
 @interface HYHBleDevice()
 @property (strong,nonatomic,readonly) NSDictionary<NSString *,id> *userInfo;
 @end
@@ -37,7 +38,16 @@
 }
 
 -(BOOL)isConnecting{
-    return self.peripheral.state == CBPeripheralStateConnecting;
+    if (self.peripheral.state == CBPeripheralStateConnecting) {
+        return YES;
+    }else{
+        for (HYHBleDevice *device in [HYHCentralManager.sharedBleManager getAllConnectingDevice] ) {
+            if ([self isSameDevice:device]) {
+                return YES;
+            }
+        }
+        return NO;
+    }
 }
 
 -(NSString *)deviceKey{

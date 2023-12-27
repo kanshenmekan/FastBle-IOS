@@ -65,8 +65,12 @@
     [HYHCentralManager.sharedBleManager setOnConnetFailBlock:^(HYHBleDevice * _Nonnull device, NSError * _Nonnull error) {
         NSLog(@"OnConnetFailBlock %@ error = %@",device,error);
     }];
+    __weak typeof(self) weakSelf = self;
     [HYHCentralManager.sharedBleManager setOnDisconnectBlock:^(HYHBleDevice * _Nonnull device, NSError * _Nullable error) {
         NSLog(@"OnDisconnectBlock %@ error = %@",device,error);
+        if (error) {
+            [weakSelf reconnect:device];
+        }
     }];
     [HYHCentralManager.sharedBleManager setBleReadSuccessBlock:^(HYHBleDevice * _Nonnull bleDevice, CBCharacteristic * _Nonnull characteristic, NSData * _Nonnull data) {
         NSLog(@"BleReadSuccessBlock %@ data = %@",bleDevice,data);
@@ -118,6 +122,8 @@
     }else if (view == self.connectBtn){
         if (self.oldDevice != nil) {
             [HYHCentralManager.sharedBleManager stopLeScan];
+//            [HYHCentralManager.sharedBleManager cancelConnecting:self.oldDevice];
+//            [HYHCentralManager.sharedBleManager disconnect:self.oldDevice];
             [HYHCentralManager.sharedBleManager connect:self.oldDevice overTime:10];
         }
     }else if (view == self.readBtn){
@@ -152,7 +158,11 @@
     }else if (view == self.mtuBtn){
         NSLog(@"123 %ld %ld",[self.oldDevice.peripheral maximumWriteValueLengthForType:CBCharacteristicWriteWithoutResponse],
               [self.oldDevice.peripheral maximumWriteValueLengthForType:CBCharacteristicWriteWithResponse]);
-        [HYHCentralManager.sharedBleManager removeOperatorQueue:self.oldDevice];
+//        [HYHCentralManager.sharedBleManager removeOperatorQueue:self.oldDevice];
+        [HYHCentralManager.sharedBleManager cancelOrDisconnect:self.oldDevice];
     }
+}
+-(void)reconnect:(HYHBleDevice *)bleDevice{
+    [HYHCentralManager.sharedBleManager connect:bleDevice overTime:-1];
 }
 @end

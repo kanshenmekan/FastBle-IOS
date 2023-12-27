@@ -39,7 +39,7 @@
     //重置定时器
     [self startTimer:overTime];
     self.connectException = nil;
-    if (self.connectCallback.onStartConnectBlock && ![self.bleDevice isConnecting]) {
+    if (self.connectCallback.onStartConnectBlock) {
         self.connectCallback.onStartConnectBlock(self.bleDevice);
     }
     /**不管之前是否在连接，都重置一下连接参数**/
@@ -89,6 +89,7 @@
     [self removeConnectCallback];
     [self removeDiscoverCallback];
     [self clearCharacterOperator];
+    
     self.bleRssiOperator = nil;
 }
 -(void)removeConnectCallback{
@@ -233,6 +234,15 @@
         [queue resume];
     }
 }
+-(void)removeAllOperateQueue{
+    @synchronized (self.bleOperatorQueueDic) {
+        for (NSString * identifier in self.bleOperatorQueueDic) {
+            HYHBleOperatorQueue *queue = [self.bleOperatorQueueDic objectForKey:identifier];
+            [queue destroy];
+        }
+        [self.bleOperatorQueueDic removeAllObjects];
+    }
+}
 -(void)removeOperateQueue{
     [self removeOperateQueueWithIdentifier:nil];
 }
@@ -274,7 +284,10 @@
     if (self.connectCallback && self.connectCallback.onConnectFailBlock) {
         self.connectCallback.onConnectFailBlock(self.bleDevice, error);
     }
-    [self destroy];
+    [self removeConnectCallback];
+    [self removeDiscoverCallback];
+    [self clearCharacterOperator];
+    self.bleRssiOperator = nil;
 }
 
 -(void)didDisconnectPeripheral:(NSError *)error{
@@ -288,11 +301,20 @@
             }
         }
     }else{
-        if (self.connectCallback && self.connectCallback.onConnectFailBlock) {
-            self.connectCallback.onConnectFailBlock(self.bleDevice, self.connectException);
+        if (self.connectException.domain == HYHConnectExceptionDomain && self.connectException.code == HYHBleErrorActiveCancelCode) {
+            if (self.connectCallback && self.connectCallback.onConnectCancelBlock) {
+                self.connectCallback.onConnectCancelBlock(self.bleDevice);
+            }
+        }else{
+            if (self.connectCallback && self.connectCallback.onConnectFailBlock) {
+                self.connectCallback.onConnectFailBlock(self.bleDevice, self.connectException);
+            }
         }
     }
-    [self destroy];
+    [self removeConnectCallback];
+    [self removeDiscoverCallback];
+    [self clearCharacterOperator];
+    self.bleRssiOperator = nil;
 }
 #pragma mark - CBPeripheralDelegate
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error{

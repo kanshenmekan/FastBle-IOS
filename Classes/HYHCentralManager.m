@@ -312,9 +312,9 @@ static id _instace;
 -(void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.connectingDictionary objectForKey:peripheral.identifier.UUIDString];
     if (bleBluetooth != nil) {
-        [bleBluetooth didConnectPeripheral];
         [self.multipleBluetoothController removeConnectingBle:bleBluetooth];
         [self.multipleBluetoothController addConnectedBleBluetooth:bleBluetooth];
+        [bleBluetooth didConnectPeripheral];
     }
     
 }
@@ -322,8 +322,8 @@ static id _instace;
 -(void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.connectingDictionary objectForKey:peripheral.identifier.UUIDString];
     if (bleBluetooth != nil) {
-        [bleBluetooth didFailToConnectPeripheral:error];
         [self.multipleBluetoothController removeConnectingBle:bleBluetooth];
+        [bleBluetooth didFailToConnectPeripheral:error];
     }
 }
 
@@ -333,9 +333,9 @@ static id _instace;
         bleBluetooth = [self.multipleBluetoothController.connectingDictionary objectForKey:peripheral.identifier.UUIDString];
     }
     if (bleBluetooth != nil) {
-        [bleBluetooth didDisconnectPeripheral:error];
         [self.multipleBluetoothController removeConnectedBleBluetooth:bleBluetooth];
         [self.multipleBluetoothController removeConnectingBle:bleBluetooth];
+        [bleBluetooth didDisconnectPeripheral:error];
     }
 }
 
@@ -405,6 +405,9 @@ static id _instace;
 }
 -(void)cancelAllConnectingDevice{
     [self.multipleBluetoothController cancelAllConnectingDevice];
+}
+-(void)cancelOrDisconnect:(HYHBleDevice *)bleDevice{
+    [self.multipleBluetoothController cancelOrDisconnect:bleDevice];
 }
 -(nullable HYHBleDevice *)getConnectedDeviceWithIdentifier:(NSString *)identifier{
     for (NSString *key in self.multipleBluetoothController.bleLruDictionary) {

@@ -96,6 +96,7 @@ typedef BOOL(^HYHOnScanFilterBlock)(HYHBleDevice *bleDevice);
 -(void)disconnectAllDevice;
 -(void)cancelConnecting:(HYHBleDevice *)bleDevice;
 -(void)cancelAllConnectingDevice;
+-(void)cancelOrDisconnect:(HYHBleDevice *)bleDevice;
 -(nullable HYHBleDevice *)getConnectedDeviceWithIdentifier:(NSString *)identifier;
 
 -(void)setBleConnectCallback:(HYHBleDevice *)bleDevice callback:(HYHBleConnectCallback *)bleConnectCallback;
