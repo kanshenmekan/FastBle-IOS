@@ -8,7 +8,7 @@
 #import "HYHBleConnectCallback.h"
 
 @implementation HYHBleConnectCallback
--(instancetype)init{
+- (instancetype)init{
     if (self = [super init]) {
         _onStartConnectBlock = nil;
         _onConnectSuccessBlock = nil;

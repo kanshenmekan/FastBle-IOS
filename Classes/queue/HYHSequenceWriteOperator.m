@@ -52,7 +52,7 @@
     }
     return self;
 }
--(void)execute:(HYHBleBluetooth *)bleBluetooth{
+- (void)execute:(HYHBleBluetooth *)bleBluetooth{
     if (bleBluetooth == nil) {
         return;
     }

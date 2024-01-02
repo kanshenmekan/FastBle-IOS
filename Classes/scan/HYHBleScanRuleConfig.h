@@ -9,9 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HYHBleScanRuleConfig : NSObject
-@property (strong,nonatomic,readonly) NSMutableArray<NSString *> *identifiers;
-@property (strong,nonatomic,readonly) NSMutableArray<NSString *> *names;
+@interface HYHBleScanRuleConfig : NSObject<NSCopying,NSMutableCopying>
+@property (strong,nonatomic) NSArray<NSString *> *identifiers;
+@property (strong,nonatomic) NSArray<NSString *> *names;
 @property (assign,nonatomic) BOOL fuzzyName;
 @property (assign,nonatomic) NSInteger scanTimeout;
 @end

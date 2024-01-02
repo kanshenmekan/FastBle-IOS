@@ -13,11 +13,11 @@
 
 @implementation HYHThreadSafeDictionary
 
-+(instancetype)dictionary{
++ (instancetype)dictionary{
     HYHThreadSafeDictionary *dictionary = [[HYHThreadSafeDictionary alloc]init];
     return dictionary;
 }
--(instancetype)init{
+- (instancetype)init{
     self = [super init];
     if (self) {
         _dictionary = [NSMutableDictionary dictionary];
@@ -71,16 +71,16 @@
     id obj = [self objectForKey:key];
     return obj != nil;
 }
--(NSString *)description{
+- (NSString *)description{
     return self.dictionary.description;
 }
--(NSArray *)allValues{
+- (NSArray *)allValues{
     dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
     NSArray *values = _dictionary.allValues;
     dispatch_semaphore_signal(_semaphore);
     return values;
 }
--(NSArray *)allKeys{
+- (NSArray *)allKeys{
     dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
     NSArray *keys = _dictionary.allKeys;
     dispatch_semaphore_signal(_semaphore);

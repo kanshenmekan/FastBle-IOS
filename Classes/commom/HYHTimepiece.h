@@ -12,7 +12,7 @@ typedef void(^HYHTimepieceTimeoutBlock)(void);
 @interface HYHTimepiece : NSObject
 @property (assign,nonatomic,readonly) BOOL valid;
 @property (copy,nonatomic,nullable) HYHTimepieceTimeoutBlock timeoutBlock;
--(void)cancelTimer;
+- (void)cancelTimer;
 
 + (HYHTimepiece *)scheduleWithTime:(NSInteger)time timeoutBlock:(nullable HYHTimepieceTimeoutBlock)timeoutBlock;
 + (HYHTimepiece *)scheduleWithTime:(NSInteger)time async:(BOOL)async timeoutBlock:(nullable HYHTimepieceTimeoutBlock)timeoutBlock;

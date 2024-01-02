@@ -19,33 +19,33 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable,strong,nonatomic) HYHBleConnectCallback *connectCallback;
 @property (nullable,strong,nonatomic) HYHBleDiscoverCallback *discoverCallback;
 @property (strong,nonatomic,nullable) HYHBleOperator *bleRssiOperator;
--(instancetype)init:(HYHBleDevice *)bleDevice;
--(void)connect:(NSDictionary *)connectOptions overTime:(NSInteger)overTime;
--(void)disconnect;
--(void)cancelConnect;
--(void)removeConnectCallback;
--(void)destroy;
+- (instancetype)init:(HYHBleDevice *)bleDevice;
+- (void)connect:(NSDictionary *)connectOptions overTime:(NSInteger)overTime;
+- (void)disconnect;
+- (void)cancelConnect;
+- (void)removeConnectCallback;
+- (void)destroy;
 
--(void)didConnectPeripheral;
--(void)didFailToConnectPeripheral:(NSError *)error;
--(void)didDisconnectPeripheral:(NSError *)error;
+- (void)didConnectPeripheral;
+- (void)didFailToConnectPeripheral:(NSError *)error;
+- (void)didDisconnectPeripheral:(NSError *)error;
 
 - (void)discoverServices:(nullable NSArray<CBUUID *> *)discoverServices;
 - (void)discoverCharacteristics:(nullable NSArray<CBUUID *> *)characteristicUUIDs forService:(CBService *)service;
 - (void)discoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic;
 
--(void)addNotifyOperator:(HYHBleOperator *)bleOperator;
--(void)removeNotifyOperator:(NSString *)uuid;
--(void)addWriteOperator:(HYHBleOperator *)bleOperator;
--(void)removeWriteOperator:(NSString *)uuid;
--(void)addReadOperator:(HYHBleOperator *)bleOperator;
--(void)removeReadOperator:(NSString *)uuid;
--(void)clearCharacterOperator;
+- (void)addNotifyOperator:(HYHBleOperator *)bleOperator;
+- (void)removeNotifyOperator:(NSString *)uuid;
+- (void)addWriteOperator:(HYHBleOperator *)bleOperator;
+- (void)removeWriteOperator:(NSString *)uuid;
+- (void)addReadOperator:(HYHBleOperator *)bleOperator;
+- (void)removeReadOperator:(NSString *)uuid;
+- (void)clearCharacterOperator;
 
--(void)removeOperateQueueWithIdentifier:(nullable NSString *)identifier;
--(void)removeOperateQueue;
--(void)addOperatorToQueueWithIdentifier:(nullable NSString *)identifier sequenceBleOperator:(HYHBleSequenceOperator *)sequenceBleOperator;
--(void)addOperatorToQueue:(HYHBleSequenceOperator *)sequenceBleOperator;
+- (void)removeOperateQueueWithIdentifier:(nullable NSString *)identifier;
+- (void)removeOperateQueue;
+- (void)addOperatorToQueueWithIdentifier:(nullable NSString *)identifier sequenceBleOperator:(HYHBleSequenceOperator *)sequenceBleOperator;
+- (void)addOperatorToQueue:(HYHBleSequenceOperator *)sequenceBleOperator;
 @end
 
 

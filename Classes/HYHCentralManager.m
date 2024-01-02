@@ -45,7 +45,7 @@ static id _instace;
     return _instace;
 }
 
--(void)initManager{
+- (void)initManager{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (self.bleOption == nil) {
@@ -65,10 +65,10 @@ static id _instace;
     });
 }
 #pragma mark - operate
--(void)setBleScanCofig:(HYHBleScanRuleConfig *)bleScanCofig{
+- (void)setBleScanCofig:(HYHBleScanRuleConfig *)bleScanCofig{
     HYHBleScanner.scanner.bleScanCofig = bleScanCofig;
 }
--(void)startLeScan{
+- (void)startLeScan{
     if (self.centralManager.state == CBManagerStateUnknown) {
         self.needScanWhenReady = YES;
     }else{
@@ -76,22 +76,22 @@ static id _instace;
         self.needScanWhenReady = NO;
     }
 }
--(void)stopLeScan{
+- (void)stopLeScan{
     [HYHBleScanner.scanner stopLeScan];
 }
--(BOOL)isScnning{
+- (BOOL)isScnning{
     return self.centralManager.isScanning;
 }
--(void)connect:(HYHBleDevice *)device{
+- (void)connect:(HYHBleDevice *)device{
     [self connect:device overTime:self.bleOption.connectOverTime];
 }
--(void)connect:(HYHBleDevice *)device overTime:(NSInteger)overTime{
+- (void)connect:(HYHBleDevice *)device overTime:(NSInteger)overTime{
     [self connect:device overTime:overTime options:self.bleOption.connectPeripheralWithOptions];
 }
--(void)connect:(HYHBleDevice *)device overTime:(NSInteger)overTime options:(nullable NSDictionary *)options {
+- (void)connect:(HYHBleDevice *)device overTime:(NSInteger)overTime options:(nullable NSDictionary *)options {
     [self connect:device overTime:overTime options:options connectCallback:nil discoverCallback:nil];
 }
--(void)connect:(HYHBleDevice *)device overTime:(NSInteger)overTime options:(nullable NSDictionary *)options connectCallback:(nullable HYHBleConnectCallback *)connectCallback discoverCallback:(nullable HYHBleDiscoverCallback *)discoverCallback {
+- (void)connect:(HYHBleDevice *)device overTime:(NSInteger)overTime options:(nullable NSDictionary *)options connectCallback:(nullable HYHBleConnectCallback *)connectCallback discoverCallback:(nullable HYHBleDiscoverCallback *)discoverCallback {
     if (connectCallback == nil) {
         connectCallback = [[HYHBleConnectCallback alloc]init];
         connectCallback.onStartConnectBlock = self.onStartConnectBlock;
@@ -124,31 +124,31 @@ static id _instace;
     [bleBluetooth connect:options overTime:overTime];
     
 }
--(void)discoverServices:(HYHBleDevice *)device services:(NSArray<CBUUID *> *)discoverServices{
+- (void)discoverServices:(HYHBleDevice *)device services:(NSArray<CBUUID *> *)discoverServices{
     if (!device.isConnected) {
         return;
     }
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController getConnectedBleBluetooth:device];
     [bleBluetooth discoverServices:discoverServices];
 }
--(void)discoverCharacteristics:(HYHBleDevice *)device characteristicUUIDs:(NSArray<CBUUID *> *)characteristicUUIDs forService:(CBService *)service{
+- (void)discoverCharacteristics:(HYHBleDevice *)device characteristicUUIDs:(NSArray<CBUUID *> *)characteristicUUIDs forService:(CBService *)service{
     if (!device.isConnected) {
         return;
     }
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController getConnectedBleBluetooth:device];
     [bleBluetooth discoverCharacteristics:characteristicUUIDs forService:service];
 }
--(void)discoverDescriptorsForCharacteristic:(HYHBleDevice *)device characteristic:(CBCharacteristic *)characteristic{
+- (void)discoverDescriptorsForCharacteristic:(HYHBleDevice *)device characteristic:(CBCharacteristic *)characteristic{
     if (!device.isConnected) {
         return;
     }
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController getConnectedBleBluetooth:device];
     [bleBluetooth discoverDescriptorsForCharacteristic:characteristic];
 }
--(void)readValueForCharacteristic:(HYHBleDevice *)device serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID{
+- (void)readValueForCharacteristic:(HYHBleDevice *)device serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID{
     [self readValueForCharacteristic:device serviceUUID:serviceUUID characteristicUUID:characteristicUUID bleReadCallback:nil];
 }
--(void)readValueForCharacteristic:(HYHBleDevice *)device serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID bleReadCallback:(nullable HYHBleReadCallback *)bleReadCallback{
+- (void)readValueForCharacteristic:(HYHBleDevice *)device serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID bleReadCallback:(nullable HYHBleReadCallback *)bleReadCallback{
     if (bleReadCallback == nil) {
         bleReadCallback = [[HYHBleReadCallback alloc]init];
         bleReadCallback.bleReadSuccessBlock = self.bleReadSuccessBlock;
@@ -165,10 +165,10 @@ static id _instace;
     }
     
 }
--(void)notify:(HYHBleDevice *)device serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID{
+- (void)notify:(HYHBleDevice *)device serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID{
     [self notify:device serviceUUID:serviceUUID characteristicUUID:characteristicUUID notifyCallback:nil];
 }
--(void)notify:(HYHBleDevice *)device serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID notifyCallback:(HYHBleNotifyCallback *)notifyCallback{
+- (void)notify:(HYHBleDevice *)device serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID notifyCallback:(HYHBleNotifyCallback *)notifyCallback{
     if (notifyCallback == nil) {
         notifyCallback = [[HYHBleNotifyCallback alloc]init];
         notifyCallback.bleNotifySuccessBlock = self.bleNotifySuccessBlock;
@@ -186,7 +186,7 @@ static id _instace;
         [[[HYHBleOperator alloc]initWithBleBluetooth:bleBluetooth characteristic:characteristic]enableCharacteristicNotification:notifyCallback];
     }
 }
--(void)stopNotify:(HYHBleDevice *)device serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID{
+- (void)stopNotify:(HYHBleDevice *)device serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController getConnectedBleBluetooth:device];
     if (bleBluetooth == nil) {
         return;
@@ -197,13 +197,13 @@ static id _instace;
     }
     [[[HYHBleOperator alloc]initWithBleBluetooth:bleBluetooth characteristic:characteristic]disableCharacteristicNotification];
 }
--(void)write:(HYHBleDevice *)bleDevice serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID data:(NSData *)data{
+- (void)write:(HYHBleDevice *)bleDevice serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID data:(NSData *)data{
     [self write:bleDevice serviceUUID:serviceUUID characteristicUUID:characteristicUUID data:data writeType:HYHBleOperateWriteTypeDefault];
 }
--(void)write:(HYHBleDevice *)bleDevice serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID data:(NSData *)data writeType:(CBCharacteristicWriteType)writeType{
+- (void)write:(HYHBleDevice *)bleDevice serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID data:(NSData *)data writeType:(CBCharacteristicWriteType)writeType{
     [self write:bleDevice serviceUUID:serviceUUID characteristicUUID:characteristicUUID data:data split:YES splitNum:self.bleOption.splitWriteNum continueWhenLastFail:NO intervalBetweenTwoPackage:0 callback:nil writeType:writeType];
 }
--(void)write:(HYHBleDevice *)bleDevice serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID data:(NSData *)data split:(BOOL)split splitNum:(NSInteger)splitNum continueWhenLastFail:(BOOL)continueWhenLastFail intervalBetweenTwoPackage:(NSInteger)intervalBetweenTwoPackage callback:(nullable HYHBleWriteCallback *)callback writeType:(CBCharacteristicWriteType)writeType{
+- (void)write:(HYHBleDevice *)bleDevice serviceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID data:(NSData *)data split:(BOOL)split splitNum:(NSInteger)splitNum continueWhenLastFail:(BOOL)continueWhenLastFail intervalBetweenTwoPackage:(NSInteger)intervalBetweenTwoPackage callback:(nullable HYHBleWriteCallback *)callback writeType:(CBCharacteristicWriteType)writeType{
     if (data == nil) {
         return;
     }
@@ -238,10 +238,10 @@ static id _instace;
         [[[HYHBleOperator alloc]initWithBleBluetooth:bleBluetooth characteristic:characteristic] writeCharacteristic:data writeType:writeType bleWriteCallback:callback];
     }
 }
--(void)readRssi:(HYHBleDevice *)bleDevice{
+- (void)readRssi:(HYHBleDevice *)bleDevice{
     [self readRssi:bleDevice bleRssiCallback:nil];
 }
--(void)readRssi:(HYHBleDevice *)bleDevice bleRssiCallback:(nullable HYHBleRssiCallback *)bleRssiCallback{
+- (void)readRssi:(HYHBleDevice *)bleDevice bleRssiCallback:(nullable HYHBleRssiCallback *)bleRssiCallback{
     if (bleRssiCallback == nil) {
         bleRssiCallback = [[HYHBleRssiCallback alloc]init];
         bleRssiCallback.bleReadRssiFailure = self.bleReadRssiFailure;
@@ -260,25 +260,25 @@ static id _instace;
         [[[HYHBleOperator alloc]initWithBleBluetooth:bleBluetooth]readRssi:bleRssiCallback];
     }
 }
--(void)addOperatorToQueue:(HYHBleDevice *)bleDevice sequenceBleOperator:(HYHBleSequenceOperator *)sequenceBleOperator{
+- (void)addOperatorToQueue:(HYHBleDevice *)bleDevice sequenceBleOperator:(HYHBleSequenceOperator *)sequenceBleOperator{
     [self addOperatorToQueue:bleDevice identifier:nil sequenceBleOperator:sequenceBleOperator];
 }
--(void)addOperatorToQueue:(HYHBleDevice *)bleDevice identifier:(nullable NSString *)identifier sequenceBleOperator:(HYHBleSequenceOperator *)sequenceBleOperator{
+- (void)addOperatorToQueue:(HYHBleDevice *)bleDevice identifier:(nullable NSString *)identifier sequenceBleOperator:(HYHBleSequenceOperator *)sequenceBleOperator{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController getConnectedBleBluetooth:bleDevice];
     if (bleBluetooth != nil) {
         [bleBluetooth addOperatorToQueueWithIdentifier:identifier sequenceBleOperator:sequenceBleOperator];
     }
 }
--(void)removeOperatorQueue:(HYHBleDevice *)bleDevice identifier:(nullable NSString *)identifier{
+- (void)removeOperatorQueue:(HYHBleDevice *)bleDevice identifier:(nullable NSString *)identifier{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController getConnectedBleBluetooth:bleDevice];
     if (bleBluetooth != nil) {
         [bleBluetooth removeOperateQueueWithIdentifier:identifier];
     }
 }
--(void)removeOperatorQueue:(HYHBleDevice *)bleDevice{
+- (void)removeOperatorQueue:(HYHBleDevice *)bleDevice{
     [self removeOperatorQueue:bleDevice identifier:nil];
 }
--(void)destroy{
+- (void)destroy{
     [self.multipleBluetoothController destroy];
     [HYHBleScanner.scanner stopLeScan];
 }
@@ -301,15 +301,15 @@ static id _instace;
         }
     }
 }
--(void)centralManager:(CBCentralManager *)central willRestoreState:(NSDictionary<NSString *,id> *)dict{
+- (void)centralManager:(CBCentralManager *)central willRestoreState:(NSDictionary<NSString *,id> *)dict{
     self.restoreDic = dict;
 }
 
--(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI{
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI{
     [HYHBleScanner.scanner centralManager:central didDiscoverPeripheral:peripheral advertisementData:advertisementData RSSI:RSSI];
 }
 
--(void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral{
+- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.connectingDictionary objectForKey:peripheral.identifier.UUIDString];
     if (bleBluetooth != nil) {
         [self.multipleBluetoothController removeConnectingBle:bleBluetooth];
@@ -319,7 +319,7 @@ static id _instace;
     
 }
 
--(void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
+- (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.connectingDictionary objectForKey:peripheral.identifier.UUIDString];
     if (bleBluetooth != nil) {
         [self.multipleBluetoothController removeConnectingBle:bleBluetooth];
@@ -343,17 +343,17 @@ static id _instace;
 - (void)setOnScanStartedBlock:(nullable HYHOnScanStartedBlock)onScanStartedBlock{
     HYHBleScanner.scanner.onScanStartedBlock = onScanStartedBlock;
 }
--(void)setOnLeScanBlock:(nullable HYHOnLeScanBlock)onLeScanBlock{
+- (void)setOnLeScanBlock:(nullable HYHOnLeScanBlock)onLeScanBlock{
     HYHBleScanner.scanner.onLeScanBlock = onLeScanBlock;
 }
--(void)setOnScanFinishBlock:(nullable HYHOnScanFinishBlock)onScanFinishBlock{
+- (void)setOnScanFinishBlock:(nullable HYHOnScanFinishBlock)onScanFinishBlock{
     HYHBleScanner.scanner.onScanFinishBlock = onScanFinishBlock;
 }
--(void)setOnScanFilterBlock:(nullable HYHOnScanFilterBlock)onScanFilterBlock{
+- (void)setOnScanFilterBlock:(nullable HYHOnScanFilterBlock)onScanFilterBlock{
     HYHBleScanner.scanner.onScanFilterBlock = onScanFilterBlock;
 }
 
--(void)restoreCentralManagerState:(NSDictionary<NSString *,id> *)dict{
+- (void)restoreCentralManagerState:(NSDictionary<NSString *,id> *)dict{
     NSArray<CBPeripheral *> *restoredPeripherals = dict[CBCentralManagerRestoredStatePeripheralsKey];
     NSMutableArray<HYHBleDevice *> *bleDevices = [NSMutableArray array];
     for (CBPeripheral *peripheral in restoredPeripherals) {
@@ -380,36 +380,36 @@ static id _instace;
 }
 
 #pragma mark - 功能性方法
--(NSArray<HYHBleDevice *> *)getAllConnectedDevice{
+- (NSArray<HYHBleDevice *> *)getAllConnectedDevice{
     NSMutableArray<HYHBleDevice *> *array = [NSMutableArray array];
     for (HYHBleBluetooth *bleBluetooth in [self.multipleBluetoothController.bleLruDictionary allValues]) {
         [array addObject:bleBluetooth.bleDevice];
     }
     return array;
 }
--(NSArray<HYHBleDevice *> *)getAllConnectingDevice{
+- (NSArray<HYHBleDevice *> *)getAllConnectingDevice{
     NSMutableArray<HYHBleDevice *> *array = [NSMutableArray array];
     for (HYHBleBluetooth *bleBluetooth in [self.multipleBluetoothController.connectingDictionary allValues]) {
         [array addObject:bleBluetooth.bleDevice];
     }
     return array;
 }
--(void)disconnect:(HYHBleDevice *)bleDevice{
+- (void)disconnect:(HYHBleDevice *)bleDevice{
     [self.multipleBluetoothController disconnect:bleDevice];
 }
--(void)disconnectAllDevice{
+- (void)disconnectAllDevice{
     [self.multipleBluetoothController disconnectAllDevice];
 }
--(void)cancelConnecting:(HYHBleDevice *)bleDevice{
+- (void)cancelConnecting:(HYHBleDevice *)bleDevice{
     [self.multipleBluetoothController cancelConnecting:bleDevice];
 }
--(void)cancelAllConnectingDevice{
+- (void)cancelAllConnectingDevice{
     [self.multipleBluetoothController cancelAllConnectingDevice];
 }
--(void)cancelOrDisconnect:(HYHBleDevice *)bleDevice{
+- (void)cancelOrDisconnect:(HYHBleDevice *)bleDevice{
     [self.multipleBluetoothController cancelOrDisconnect:bleDevice];
 }
--(nullable HYHBleDevice *)getConnectedDeviceWithIdentifier:(NSString *)identifier{
+- (nullable HYHBleDevice *)getConnectedDeviceWithIdentifier:(NSString *)identifier{
     for (NSString *key in self.multipleBluetoothController.bleLruDictionary) {
         HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:key];
         if ([bleBluetooth.bleDevice.peripheral.identifier.UUIDString isEqualToString:identifier]) {
@@ -418,43 +418,43 @@ static id _instace;
     }
     return nil;
 }
--(void)setBleConnectCallback:(HYHBleDevice *)bleDevice callback:(HYHBleConnectCallback *)bleConnectCallback{
+- (void)setBleConnectCallback:(HYHBleDevice *)bleDevice callback:(HYHBleConnectCallback *)bleConnectCallback{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
     if (bleBluetooth != nil) {
         bleBluetooth.connectCallback = bleConnectCallback;
     }
 }
--(void)setBleDiscoverCallback:(HYHBleDevice *)bleDevice callback:(HYHBleDiscoverCallback *)bleDiscoverCallback{
+- (void)setBleDiscoverCallback:(HYHBleDevice *)bleDevice callback:(HYHBleDiscoverCallback *)bleDiscoverCallback{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
     if (bleBluetooth != nil) {
         bleBluetooth.discoverCallback = bleDiscoverCallback;
     }
 }
--(void)removeBleReadCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleReadCallback *)bleReadCallback{
+- (void)removeBleReadCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleReadCallback *)bleReadCallback{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
     if (bleBluetooth != nil) {
         [bleBluetooth removeReadOperator:characteristic.UUID.UUIDString];
     }
 }
--(void)removeBleWriteCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleWriteCallback *)bleWriteCallback{
+- (void)removeBleWriteCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleWriteCallback *)bleWriteCallback{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
     if (bleBluetooth != nil) {
         [bleBluetooth removeWriteOperator:characteristic.UUID.UUIDString];
     }
 }
--(void)removeBleNotifyCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleNotifyCallback *)bleNotifyCallback{
+- (void)removeBleNotifyCallback:(HYHBleDevice *)bleDevice characteristic:(CBCharacteristic *)characteristic callback:(HYHBleNotifyCallback *)bleNotifyCallback{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
     if (bleBluetooth != nil) {
         [bleBluetooth removeNotifyOperator:characteristic.UUID.UUIDString];
     }
 }
--(void)removeBleRssiCallback:(HYHBleDevice *)bleDevice callback:(HYHBleRssiCallback *)bleRssiCallback{
+- (void)removeBleRssiCallback:(HYHBleDevice *)bleDevice callback:(HYHBleRssiCallback *)bleRssiCallback{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
     if (bleBluetooth != nil) {
         bleBluetooth.bleRssiOperator = nil;
     }
 }
--(void)clearCharacterCallback:(HYHBleDevice *)bleDevice{
+- (void)clearCharacterCallback:(HYHBleDevice *)bleDevice{
     HYHBleBluetooth *bleBluetooth = [self.multipleBluetoothController.bleLruDictionary objectForKey:bleDevice.deviceKey];
     if (bleBluetooth != nil) {
         [bleBluetooth clearCharacterOperator];

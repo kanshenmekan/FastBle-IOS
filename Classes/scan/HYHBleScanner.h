@@ -15,17 +15,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HYHBleScanner : NSObject
 
-@property (strong,nonatomic) HYHBleScanRuleConfig *bleScanCofig;
+@property (copy,nonatomic) HYHBleScanRuleConfig *bleScanCofig;
 @property (copy,nonatomic,nullable) HYHOnScanStartedBlock onScanStartedBlock;
 @property (copy,nonatomic,nullable) HYHOnLeScanBlock onLeScanBlock;
 @property (copy,nonatomic,nullable) HYHOnScanFinishBlock onScanFinishBlock;
 @property (copy,nonatomic,nullable) HYHOnScanFilterBlock onScanFilterBlock;
--(void)onBleOff;
+- (void)onBleOff;
 + (instancetype)scanner;
--(void)startLeScan;
+- (void)startLeScan;
 - (void)stopLeScan;
--(void)removeScanCallback;
--(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI;
+- (void)removeScanCallback;
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI;
 
 @end
 

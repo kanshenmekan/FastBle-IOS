@@ -43,7 +43,7 @@
     }
     return object;
 }
--(void)remove:(id)obj{
+- (void)remove:(id)obj{
     @synchronized (self) {
         if ([self.queue indexOfObject:obj] != NSNotFound) {
             dispatch_semaphore_wait(self.queueSemaphore, DISPATCH_TIME_FOREVER);
@@ -51,12 +51,12 @@
         }
     }
 }
--(NSUInteger)count{
+- (NSUInteger)count{
     @synchronized(self) {
         return self.queue.count;
     }
 }
--(void)clear{
+- (void)clear{
     @synchronized (self) {
         dispatch_semaphore_signal(_queueSemaphore);
         [self.queue removeAllObjects];

@@ -12,7 +12,7 @@
 @end
 
 @implementation HYHBleDevice
--(instancetype) initWithDict:(NSDictionary *)dict{
+- (instancetype) initWithDict:(NSDictionary *)dict{
     if([self init]){
         _peripheral = dict[@"peripheral"];
         _advertisementData = dict[@"advertisementData"];
@@ -21,23 +21,23 @@
     }
     return self;
 }
--(instancetype)init{
+- (instancetype)init{
     if (self = [super init]) {
         _userInfo = [NSMutableDictionary dictionary];
     }
     return self;
 }
--(instancetype) initWithPeripheral:(CBPeripheral *)peripheral{
+- (instancetype) initWithPeripheral:(CBPeripheral *)peripheral{
     if ([self init]) {
         _peripheral = peripheral;
     }
     return self;
 }
--(BOOL)isConnected{
+- (BOOL)isConnected{
     return self.peripheral.state == CBPeripheralStateConnected;
 }
 
--(BOOL)isConnecting{
+- (BOOL)isConnecting{
     if (self.peripheral.state == CBPeripheralStateConnecting) {
         return YES;
     }else{
@@ -50,27 +50,27 @@
     }
 }
 
--(NSString *)deviceKey{
+- (NSString *)deviceKey{
     return self.peripheral.identifier.UUIDString;
 }
--(BOOL)isSameDevice:(HYHBleDevice *)bleDevice{
+- (BOOL)isSameDevice:(HYHBleDevice *)bleDevice{
     if (bleDevice == nil) {
         return NO;
     }
     return [self isSamePeripheral:bleDevice.peripheral];
 }
 
--(BOOL)isSamePeripheral:(CBPeripheral *)peripheral{
+- (BOOL)isSamePeripheral:(CBPeripheral *)peripheral{
     if (peripheral == nil) {
         return NO;
     }
     return [self.deviceKey isEqualToString:peripheral.identifier.UUIDString];
 }
--(void)putValue:(id)value forKey:(NSString *) key{
+- (void)putValue:(id)value forKey:(NSString *) key{
     [self.userInfo setValue:value forKey:key];
 }
 
--(nullable id)getWithKey:(NSString *)key{
+- (nullable id)getWithKey:(NSString *)key{
     return [self.userInfo valueForKey:key];
 }
 @end

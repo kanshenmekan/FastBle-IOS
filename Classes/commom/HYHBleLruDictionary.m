@@ -11,7 +11,7 @@
 @end
 
 @implementation HYHBleLruDictionary
--(instancetype)initWithMaximumCapacity:(NSInteger)maximumCapacity{
+- (instancetype)initWithMaximumCapacity:(NSInteger)maximumCapacity{
     if (self = [super init]) {
         _keys = [NSMutableArray array];
         _maximumCapacity = maximumCapacity;
@@ -43,16 +43,16 @@
     [_keys removeObject:aKey];
     [super removeObjectForKey:aKey];
 }
--(void)removeAllObjects{
+- (void)removeAllObjects{
     [_keys removeAllObjects];
     [super removeAllObjects];
 }
--(void)removedEldestEntry:(id)aKey{
+- (void)removedEldestEntry:(id)aKey{
     if (self.delegate && [self.delegate respondsToSelector:@selector(bleLruDictionary:removeEldestEntry:)]) {
         [self.delegate bleLruDictionary:self removeEldestEntry:[self objectForKey:aKey]];
     }
 }
--(NSString *)description{
+- (NSString *)description{
     return [NSString stringWithFormat:@"%@ maximumCapacity = %ld",[super description],self.maximumCapacity];
 }
 @end

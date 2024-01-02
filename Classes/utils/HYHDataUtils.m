@@ -8,7 +8,7 @@
 #import "HYHDataUtils.h"
 
 @implementation HYHDataUtils
-+(HYHQueue<NSData *> *)splitPacketForByte:(NSData *)data length:(NSInteger)length{
++ (HYHQueue<NSData *> *)splitPacketForByte:(NSData *)data length:(NSInteger)length{
     HYHQueue<NSData *> *queue = [HYHQueue arrayQueue];
     if(data != nil){
         NSUInteger index = 0;

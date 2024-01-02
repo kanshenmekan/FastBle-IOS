@@ -23,8 +23,8 @@ typedef enum : NSUInteger {
 } HYHBleErrorCode;
 
 @interface HYHBleError : NSError
-+(HYHBleError *)timeoutException;
--(instancetype)initWithDomain:(NSErrorDomain)domain code:(NSInteger)code localizedDescription:(NSString *)localizedDescription;
++ (HYHBleError *)timeoutException;
+- (instancetype)initWithDomain:(NSErrorDomain)domain code:(NSInteger)code localizedDescription:(NSString *)localizedDescription;
 @end
 
 NS_ASSUME_NONNULL_END

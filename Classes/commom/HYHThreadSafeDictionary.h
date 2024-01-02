@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HYHThreadSafeDictionary<__covariant KeyType, __covariant ObjectType> : NSObject<NSFastEnumeration>
-+(instancetype) dictionary;
++ (instancetype) dictionary;
 - (void)setObject:(ObjectType)object forKey:(KeyType<NSCopying>)key;
 - (ObjectType)objectForKey:(KeyType<NSCopying>)key;
 - (void)removeObjectForKey:(KeyType<NSCopying>)key;
@@ -19,8 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSEnumerator *)keyEnumerator;
 - (void)removeAllObjects;
 - (id)copy;
--(NSArray<ObjectType> *)allValues;
--(NSArray<KeyType> *)allKeys;
+- (NSArray<ObjectType> *)allValues;
+- (NSArray<KeyType> *)allKeys;
 @end
 
 NS_ASSUME_NONNULL_END

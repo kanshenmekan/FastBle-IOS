@@ -14,14 +14,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype) arrayQueue;
 + (instancetype) arrayQueueWithCapacity:(NSUInteger)capacity;
 - (instancetype) initWithCapacity:(NSUInteger)numItems;
--(void)setAll:(nonnull NSArray<T> *)array;
--(void)addAll:(nonnull NSArray<T> *)array;
--(void)clear;
--(nullable T)peek;
--(nullable T)poll;
--(void)offer:(T)ob;
--(NSUInteger)count;
--(BOOL)isEmpty;
+- (void)setAll:(nonnull NSArray<T> *)array;
+- (void)addAll:(nonnull NSArray<T> *)array;
+- (void)clear;
+- (nullable T)peek;
+- (nullable T)poll;
+- (void)offer:(T)ob;
+- (NSUInteger)count;
+- (BOOL)isEmpty;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -62,7 +62,7 @@
     }
     return self;
 }
--(void)splitwrite:(NSData *)data splitNum:(NSInteger)splitNum continueWhenLastFail:(BOOL)continueWhenLastFail intervalBetweenTwoPackage:(NSInteger)intervalBetweenTwoPackage callback:(HYHBleWriteCallback *)callback writeType:(CBCharacteristicWriteType)writeType{
+- (void)splitwrite:(NSData *)data splitNum:(NSInteger)splitNum continueWhenLastFail:(BOOL)continueWhenLastFail intervalBetweenTwoPackage:(NSInteger)intervalBetweenTwoPackage callback:(HYHBleWriteCallback *)callback writeType:(CBCharacteristicWriteType)writeType{
     if (writeType == HYHBleOperateWriteTypeDefault) {
         if (self.weakBleOperator.characteristic.properties & CBCharacteristicPropertyWrite) {
             writeType = CBCharacteristicWriteWithResponse;
@@ -83,7 +83,7 @@
 }
 
 
--(void)splitWrite{
+- (void)splitWrite{
     __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         weakSelf.dataArray = [HYHDataUtils splitPacketForByte:weakSelf.data length:weakSelf.splitNum];

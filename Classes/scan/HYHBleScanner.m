@@ -44,13 +44,13 @@ static id _instace;
 {
     return _instace;
 }
--(CBCentralManager *)centralManager{
+- (CBCentralManager *)centralManager{
     return HYHCentralManager.sharedBleManager.centralManager;
 }
--(HYHBleOptions *)bleOptions{
+- (HYHBleOptions *)bleOptions{
     return HYHCentralManager.sharedBleManager.bleOption;
 }
--(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI{
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI{
     HYHBleDevice *device = [[HYHBleDevice alloc]initWithDict:@{ @"peripheral":peripheral,
                                                                 @"advertisementData":advertisementData,
                                                                 @"RSSI":RSSI}];
@@ -94,7 +94,7 @@ static id _instace;
   
     [self correctDeviceAndNextStep:device];
 }
--(void)correctDeviceAndNextStep:(HYHBleDevice *)device{
+- (void)correctDeviceAndNextStep:(HYHBleDevice *)device{
     if (self.bleDeviceDictionary[device.deviceKey]) {
         HYHBleDevice *oldDevice = self.bleDeviceDictionary[device.deviceKey];
         self.bleDeviceDictionary[device.deviceKey] = device;
@@ -110,7 +110,7 @@ static id _instace;
 }
 
 
--(void)startLeScan{
+- (void)startLeScan{
     if ([self isScanning]) {
         NSLog(@"scan action already exists, complete the previous scan action first");
         if (self.onScanStartedBlock) {
@@ -166,17 +166,17 @@ static id _instace;
     }
     
 }
--(BOOL)isScanning{
+- (BOOL)isScanning{
     return self.centralManager.isScanning;
 }
--(void)onBleOff{
+- (void)onBleOff{
     if ([self.timepiece valid]) {
         if (self.onScanFinishBlock) {
             self.onScanFinishBlock(self.bleDeviceDictionary.allValues);
         }
     }
 }
--(void)removeScanCallback{
+- (void)removeScanCallback{
     self.onScanStartedBlock = nil;
     self.onLeScanBlock = nil;
     self.onScanFilterBlock = nil;

@@ -22,7 +22,7 @@ NSInteger const HYHBleOperateWriteSingleData = 1;
 @end
 
 @implementation HYHBleOperator
--(instancetype)initWithBleBluetooth:(HYHBleBluetooth *)bleBluetooth characteristic:(nullable CBCharacteristic *)characteristic{
+- (instancetype)initWithBleBluetooth:(HYHBleBluetooth *)bleBluetooth characteristic:(nullable CBCharacteristic *)characteristic{
     if (self = [super init]) {
         self.bleBluetooth = bleBluetooth;
         self.characteristic = characteristic;
@@ -30,22 +30,22 @@ NSInteger const HYHBleOperateWriteSingleData = 1;
     }
     return self;
 }
--(instancetype)initWithBleBluetooth:(HYHBleBluetooth *)bleBluetooth{
+- (instancetype)initWithBleBluetooth:(HYHBleBluetooth *)bleBluetooth{
     return [self initWithBleBluetooth:bleBluetooth characteristic:nil];
 }
--(HYHBleOperator *)withServiceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID{
+- (HYHBleOperator *)withServiceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID{
     if (self.bleBluetooth == nil) {
         return self;
     }
     self.characteristic = [self.bleBluetooth.bleDevice.peripheral getCharacteristicFromServiceUUID:serviceUUID characteristicUUID:characteristicUUID];
     return self;
 }
--(BOOL)valid{
+- (BOOL)valid{
     return self.bleBluetooth != nil;
 }
 
 
--(void)startTimer{
+- (void)startTimer{
     [self stopOperateTimer];
     if (self.timeout > 0) {
         __weak typeof(self) weakSelf = self;
@@ -56,14 +56,14 @@ NSInteger const HYHBleOperateWriteSingleData = 1;
         }];
     }
 }
--(void)stopOperateTimer{
+- (void)stopOperateTimer{
     if (self.operateTimer && [self.operateTimer valid]) {
         [self.operateTimer cancelTimer];
         self.operateTimer.timeoutBlock = nil;
     }
 }
 #pragma mark - 蓝牙操作
--(void)readCharacteristic:(HYHBleReadCallback *)readCallback{
+- (void)readCharacteristic:(HYHBleReadCallback *)readCallback{
     if ([self valid] && self.characteristic) {
         if (self.characteristic.properties & CBCharacteristicPropertyRead) {
             self.operateCallback = readCallback;
@@ -77,7 +77,7 @@ NSInteger const HYHBleOperateWriteSingleData = 1;
         }
     }
 }
--(void)enableCharacteristicNotification:(HYHBleNotifyCallback *)notifyCallback{
+- (void)enableCharacteristicNotification:(HYHBleNotifyCallback *)notifyCallback{
     if ([self valid] && self.characteristic) {
         if (self.characteristic.properties & CBCharacteristicPropertyNotify) {
             self.operateCallback = notifyCallback;
@@ -91,12 +91,12 @@ NSInteger const HYHBleOperateWriteSingleData = 1;
         }
     }
 }
--(void)disableCharacteristicNotification{
+- (void)disableCharacteristicNotification{
     if ([self valid] && self.characteristic) {
         [self.bleBluetooth.bleDevice.peripheral setNotifyValue:NO forCharacteristic:self.characteristic];
     }
 }
--(void)writeCharacteristic:(NSData *)data writeType:(CBCharacteristicWriteType)writeType bleWriteCallback:(HYHBleWriteCallback *)bleWriteCallback{
+- (void)writeCharacteristic:(NSData *)data writeType:(CBCharacteristicWriteType)writeType bleWriteCallback:(HYHBleWriteCallback *)bleWriteCallback{
     self.data = data;
     if (data == nil) {
         return;
@@ -133,19 +133,19 @@ NSInteger const HYHBleOperateWriteSingleData = 1;
         }
     }
 }
--(void)bindingSplitWriter:(HYHBleSplitWriter *)splitWriter{
+- (void)bindingSplitWriter:(HYHBleSplitWriter *)splitWriter{
     self.splitWriter = splitWriter;
     splitWriter.weakBleOperator = self;
     [self.bleBluetooth addWriteOperator:self];
 }
--(void)readRssi:(HYHBleRssiCallback *)callback{
+- (void)readRssi:(HYHBleRssiCallback *)callback{
     if([self valid]){
         self.operateCallback = callback;
         self.bleBluetooth.bleRssiOperator = self;
         [self.bleBluetooth.bleDevice.peripheral readRSSI];
     }
 }
--(void)destroy{
+- (void)destroy{
     self.data = nil;
     self.splitWriter = nil;
     self.bleBluetooth = nil;

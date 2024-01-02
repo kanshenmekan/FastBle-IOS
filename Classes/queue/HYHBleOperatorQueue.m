@@ -33,7 +33,7 @@
     }
     return self;
 }
--(void)resume{
+- (void)resume{
     if (self.isActive) {
         return;
     }
@@ -71,25 +71,25 @@
         [self.condition signal];
     }
 }
--(void)pause{
+- (void)pause{
     self.isActive = NO;
     [self.condition signal];
     if (self.hasDelay) {
         dispatch_semaphore_signal(self.delaySemaphore);
     }
 }
--(void)remove:(HYHBleSequenceOperator *)operator{
+- (void)remove:(HYHBleSequenceOperator *)operator{
   [self.taskQueue remove:operator];
 }
--(void)clear{
+- (void)clear{
     [self.taskQueue clear];
 }
--(void)destroy{
+- (void)destroy{
     [self pause];
     [self clear];
     self.bleBluetooth = nil;
 }
--(void)offer:(HYHBleSequenceOperator *)sequenceOperator{
+- (void)offer:(HYHBleSequenceOperator *)sequenceOperator{
     if(self.isActive){
         sequenceOperator.operatorQueue = self;
         [self.taskQueue enqueue:sequenceOperator];

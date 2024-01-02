@@ -12,12 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HYHBleOperatorQueue : NSObject
 - (instancetype)initWithKey:(nonnull NSString *)key bleBluetooth:(HYHBleBluetooth *)bleBluetooth;
--(void)resume;
--(void)destroy;
--(void)clear;
--(void)remove:(HYHBleSequenceOperator *)operator;
--(void)pause;
--(void)offer:(HYHBleSequenceOperator *)sequenceOperator;
+- (void)resume;
+- (void)destroy;
+- (void)clear;
+- (void)remove:(HYHBleSequenceOperator *)operator;
+- (void)pause;
+- (void)offer:(HYHBleSequenceOperator *)sequenceOperator;
 - (void)bleOperatorTaskEnd:(nonnull HYHBleSequenceOperator *)task result:(BOOL)result;
 @end
 

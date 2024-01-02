@@ -33,14 +33,14 @@
     }
     return self;
 }
--(nullable id)peek{
+- (nullable id)peek{
     if ([self isEmpty]) {
         return nil;
     }
     id obj = [self.array firstObject];
     return obj;
 }
--(id)poll{
+- (id)poll{
     if ([self isEmpty]) {
         return nil;
     }
@@ -48,27 +48,27 @@
     [self.array removeObjectAtIndex:0];
     return obj;
 }
--(void)offer:(id)obj{
+- (void)offer:(id)obj{
     [self.array addObject:obj];
 }
--(void)addAll:(nonnull NSArray *)array{
+- (void)addAll:(nonnull NSArray *)array{
     [self.array addObjectsFromArray:array];
 }
--(void)setAll:(nonnull NSArray *)array{
+- (void)setAll:(nonnull NSArray *)array{
     [self.array setArray:array];
 }
--(void)clear{
+- (void)clear{
     [self.array removeAllObjects];
 }
 
 - (NSUInteger)count{
     return self.array.count;
 }
--(BOOL)isEmpty{
+- (BOOL)isEmpty{
     return self.array.count == 0;
 }
 
--(NSString *)description{
+- (NSString *)description{
     NSString * desc = @"\n";
     for (id obj in self.array) {
         desc = [desc stringByAppendingFormat:@"%@;\n",obj];

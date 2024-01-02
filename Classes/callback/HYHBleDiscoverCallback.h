@@ -18,7 +18,7 @@ typedef void(^HYHBleDidDiscoverDescriptorsForCharacteristicBlock)(HYHBleDevice *
 @property (nonatomic,copy,nullable) NSArray<CBUUID *> *discoverWithServices;
 @property (nonatomic,copy,nullable) NSArray<CBUUID *> *discoverWithCharacteristics;
 
--(instancetype)initWithDiscoverServices:(nullable NSArray<CBUUID *> *)discoverServices discoverCharacteristics:(nullable NSArray<CBUUID *> *)discoverCharacteristics;
+- (instancetype)initWithDiscoverServices:(nullable NSArray<CBUUID *> *)discoverServices discoverCharacteristics:(nullable NSArray<CBUUID *> *)discoverCharacteristics;
 @end
 
 NS_ASSUME_NONNULL_END

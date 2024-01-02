@@ -21,7 +21,7 @@
 @end
 
 @implementation HYHBleBluetooth
--(instancetype)init:(HYHBleDevice *)bleDevice{
+- (instancetype)init:(HYHBleDevice *)bleDevice{
     if (self = [super init]) {
         _bleDevice = bleDevice;
         _bleDevice.peripheral.delegate = self;
@@ -32,7 +32,7 @@
     }
     return self;
 }
--(void)connect:(NSDictionary *)connectOptions overTime:(NSInteger)overTime{
+- (void)connect:(NSDictionary *)connectOptions overTime:(NSInteger)overTime{
     if (self.bleDevice.isConnected) {
         return;
     }
@@ -45,7 +45,7 @@
     /**不管之前是否在连接，都重置一下连接参数**/
     [[self centralManager]connectPeripheral:self.bleDevice.peripheral options:connectOptions];
 }
--(void)startTimer:(NSInteger)overTime{
+- (void)startTimer:(NSInteger)overTime{
     [self stopConnectTimer];
     if (overTime > 0) {
         __weak typeof(self) weakSelf = self;
@@ -55,7 +55,7 @@
         }];
     }
 }
--(void)stopConnectTimer{
+- (void)stopConnectTimer{
     if (self.connectTimer && [self.connectTimer valid]) {
         [self.connectTimer cancelTimer];
     }
@@ -63,7 +63,7 @@
 /**
  *  没有连接成功的时候，取消连接
  */
--(void)cancelConnect{
+- (void)cancelConnect{
     if (self.bleDevice.isConnected) {
         return;
     }
@@ -73,17 +73,17 @@
 /**
  *  断开连接
  */
--(void)disconnect{
+- (void)disconnect{
     self.connectException = nil;
     [HYHCentralManager.sharedBleManager.centralManager cancelPeripheralConnection:self.bleDevice.peripheral];
 }
--(NSString *)deviceKey{
+- (NSString *)deviceKey{
     return self.bleDevice.deviceKey;
 }
--(CBCentralManager *)centralManager{
+- (CBCentralManager *)centralManager{
     return HYHCentralManager.sharedBleManager.centralManager;
 }
--(void)destroy{
+- (void)destroy{
     [self disconnect];
     [self stopConnectTimer];
     [self removeConnectCallback];
@@ -92,7 +92,7 @@
     
     self.bleRssiOperator = nil;
 }
--(void)removeConnectCallback{
+- (void)removeConnectCallback{
     self.connectCallback.onStartConnectBlock = nil;
     self.connectCallback.onConnectSuccessBlock = nil;
     self.connectCallback.onConnectFailBlock = nil;
@@ -100,7 +100,7 @@
     self.connectCallback.onConnectCancelBlock = nil;
     self.connectCallback = nil;
 }
--(void)removeDiscoverCallback{
+- (void)removeDiscoverCallback{
     self.discoverCallback.didDiscoverServicesBlock = nil;
     self.discoverCallback.didDiscoverCharacteristicsForServiceBlock = nil;
     self.discoverCallback.didDiscoverDescriptorsForCharacteristicBlock = nil;
@@ -118,14 +118,14 @@
     }
     [self.bleDevice.peripheral discoverCharacteristics:characteristicUUIDs forService:service];
 }
--(void)discoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic{
+- (void)discoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic{
     if (!self.bleDevice.isConnected) {
         return;
     }
     [self.bleDevice.peripheral discoverDescriptorsForCharacteristic:characteristic];
 }
 #pragma mark - 添加write,read,notify,indicate操作
--(void)addNotifyOperator:(HYHBleOperator *)bleOperator{
+- (void)addNotifyOperator:(HYHBleOperator *)bleOperator{
     if (bleOperator.characteristic == nil) {
         return;
     }
@@ -140,7 +140,7 @@
         }
     }
 }
--(void)removeNotifyOperator:(NSString *)uuid{
+- (void)removeNotifyOperator:(NSString *)uuid{
     @synchronized (self.bleNotifyOperatorDic) {
         HYHBleOperator *operator = self.bleNotifyOperatorDic[uuid];
         if (operator != nil) {
@@ -150,7 +150,7 @@
     }
 }
 
--(void)addWriteOperator:(HYHBleOperator *)bleOperator{
+- (void)addWriteOperator:(HYHBleOperator *)bleOperator{
     if (bleOperator.characteristic == nil) {
         return;
     }
@@ -165,7 +165,7 @@
         }
     }
 }
--(void)removeWriteOperator:(NSString *)uuid{
+- (void)removeWriteOperator:(NSString *)uuid{
     @synchronized (self.bleWriteOperatorDic) {
         HYHBleOperator *operator = self.bleWriteOperatorDic[uuid];
         if (operator != nil) {
@@ -174,7 +174,7 @@
         [self.bleWriteOperatorDic removeObjectForKey:uuid];
     }
 }
--(void)addReadOperator:(HYHBleOperator *)bleOperator{
+- (void)addReadOperator:(HYHBleOperator *)bleOperator{
     if (bleOperator.characteristic == nil) {
         return;
     }
@@ -189,7 +189,7 @@
         }
     }
 }
--(void)removeReadOperator:(NSString *)uuid{
+- (void)removeReadOperator:(NSString *)uuid{
     @synchronized (self.bleReadOperatorDic) {
         HYHBleOperator *operator = self.bleReadOperatorDic[uuid];
         if (operator != nil) {
@@ -198,7 +198,7 @@
         [self.bleReadOperatorDic removeObjectForKey:uuid];
     }
 }
--(void)clearCharacterOperator{
+- (void)clearCharacterOperator{
     for (NSString *key in self.bleReadOperatorDic) {
         [self.bleReadOperatorDic[key] destroy];
     }
@@ -220,7 +220,7 @@
     [self.bleOperatorQueueDic removeAllObjects];
 }
 #pragma mark - 队列
--(void)createOperateQueueWithIdentifier:(nullable NSString *)identifier{
+- (void)createOperateQueueWithIdentifier:(nullable NSString *)identifier{
     @synchronized (self.bleOperatorQueueDic) {
         if (identifier == nil || [identifier isEqualToString:@""]) {
             identifier = self.deviceKey;
@@ -234,7 +234,7 @@
         [queue resume];
     }
 }
--(void)removeAllOperateQueue{
+- (void)removeAllOperateQueue{
     @synchronized (self.bleOperatorQueueDic) {
         for (NSString * identifier in self.bleOperatorQueueDic) {
             HYHBleOperatorQueue *queue = [self.bleOperatorQueueDic objectForKey:identifier];
@@ -243,10 +243,10 @@
         [self.bleOperatorQueueDic removeAllObjects];
     }
 }
--(void)removeOperateQueue{
+- (void)removeOperateQueue{
     [self removeOperateQueueWithIdentifier:nil];
 }
--(void)removeOperateQueueWithIdentifier:(nullable NSString *)identifier{
+- (void)removeOperateQueueWithIdentifier:(nullable NSString *)identifier{
     @synchronized (self.bleOperatorQueueDic) {
         if(identifier == nil)identifier = self.deviceKey;
         HYHBleOperatorQueue *queue = [self.bleOperatorQueueDic objectForKey:identifier];
@@ -256,10 +256,10 @@
         }
     }
 }
--(void)addOperatorToQueue:(HYHBleSequenceOperator *)sequenceBleOperator{
+- (void)addOperatorToQueue:(HYHBleSequenceOperator *)sequenceBleOperator{
     [self addOperatorToQueueWithIdentifier:nil sequenceBleOperator:sequenceBleOperator];
 }
--(void)addOperatorToQueueWithIdentifier:(nullable NSString *)identifier sequenceBleOperator:(HYHBleSequenceOperator *)sequenceBleOperator{
+- (void)addOperatorToQueueWithIdentifier:(nullable NSString *)identifier sequenceBleOperator:(HYHBleSequenceOperator *)sequenceBleOperator{
     @synchronized (self) {
         if (identifier == nil) {
             identifier = self.deviceKey;
@@ -269,7 +269,7 @@
     }
 }
 #pragma mark - CBCentralManager
--(void)didConnectPeripheral{
+- (void)didConnectPeripheral{
     [self stopConnectTimer];
     self.connectException = nil;
     if (self.connectCallback && self.connectCallback.onConnectSuccessBlock) {
@@ -278,7 +278,7 @@
     [self.bleDevice.peripheral discoverServices:self.discoverCallback.discoverWithServices];
 }
 
--(void)didFailToConnectPeripheral:(NSError *)error{
+- (void)didFailToConnectPeripheral:(NSError *)error{
     self.connectException = nil;
     [self stopConnectTimer];
     if (self.connectCallback && self.connectCallback.onConnectFailBlock) {
@@ -290,7 +290,7 @@
     self.bleRssiOperator = nil;
 }
 
--(void)didDisconnectPeripheral:(NSError *)error{
+- (void)didDisconnectPeripheral:(NSError *)error{
     [self stopConnectTimer];
     if (self.connectException == nil) {
         if (self.connectCallback && self.connectCallback.onDisconnectBlock) {
@@ -325,19 +325,19 @@
         self.discoverCallback.didDiscoverServicesBlock(self.bleDevice,error);
     }
 }
--(void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error{
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error{
     if (self.discoverCallback && self.discoverCallback.didDiscoverCharacteristicsForServiceBlock) {
         self.discoverCallback.didDiscoverCharacteristicsForServiceBlock(self.bleDevice, service, error);
     }
 }
 
 //搜索到Characteristic的Descriptors
--(void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
     if (self.discoverCallback && self.discoverCallback.didDiscoverDescriptorsForCharacteristicBlock) {
         self.discoverCallback.didDiscoverDescriptorsForCharacteristicBlock(self.bleDevice, characteristic, error);
     }
 }
--(void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
     if (characteristic.isNotifying) {
         for (NSString *key in self.bleNotifyOperatorDic) {
             if ([self.bleNotifyOperatorDic[key].characteristic.UUID isEqual:characteristic.UUID]) {
@@ -377,7 +377,7 @@
 
     
 }
--(void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
     for (NSString *key in self.bleNotifyOperatorDic) {
         if ([self.bleNotifyOperatorDic[key].characteristic.UUID isEqual:characteristic.UUID]) {
             HYHBleOperator *operator = self.bleNotifyOperatorDic[key];
@@ -406,7 +406,7 @@
         }
     }
 }
--(void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
+- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
     for (NSString *key in self.bleWriteOperatorDic) {
         if ([self.bleWriteOperatorDic[key].characteristic.UUID isEqual:characteristic.UUID]) {
             HYHBleOperator *operator = self.bleWriteOperatorDic[key];
@@ -428,7 +428,7 @@
         }
     }
 }
--(void)peripheral:(CBPeripheral *)peripheral didReadRSSI:(NSNumber *)RSSI error:(NSError *)error{
+- (void)peripheral:(CBPeripheral *)peripheral didReadRSSI:(NSNumber *)RSSI error:(NSError *)error{
     if (self.bleRssiOperator) {
         [self.bleRssiOperator stopOperateTimer];
         if (![self.bleRssiOperator.operateCallback isMemberOfClass:HYHBleRssiCallback.class]) {

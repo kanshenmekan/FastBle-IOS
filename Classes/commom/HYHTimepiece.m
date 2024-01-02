@@ -41,7 +41,7 @@
 + (HYHTimepiece *)scheduleWithTime:(NSInteger)time timeoutBlock:(nullable HYHTimepieceTimeoutBlock)timeoutBlock{
     return [self scheduleWithTime:time async:NO timeoutBlock:timeoutBlock];
 }
--(void)cancelTimer{
+- (void)cancelTimer{
     if (self.valid) {
         dispatch_source_cancel(self.gcdTimer);
         self.valid = NO;

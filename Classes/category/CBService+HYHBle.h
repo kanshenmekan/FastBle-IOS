@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CBService(HYHBle)
--(nullable CBCharacteristic *)getCharacteristicWithUUID:(CBUUID *)uuid;
+- (nullable CBCharacteristic *)getCharacteristicWithUUID:(CBUUID *)uuid;
 @end
 
 NS_ASSUME_NONNULL_END

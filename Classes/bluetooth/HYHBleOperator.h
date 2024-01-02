@@ -23,21 +23,21 @@ extern NSInteger const HYHBleOperateWriteSingleData;
 @property (strong,nonatomic,nullable) HYHBleOperateCallback *operateCallback;
 @property (assign,nonatomic) NSInteger timeout;
 
--(instancetype)initWithBleBluetooth:(HYHBleBluetooth *)bleBluetooth characteristic:(nullable CBCharacteristic *)characteristic;
--(instancetype)initWithBleBluetooth:(HYHBleBluetooth *)bleBluetooth;
--(HYHBleOperator *)withServiceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID;
+- (instancetype)initWithBleBluetooth:(HYHBleBluetooth *)bleBluetooth characteristic:(nullable CBCharacteristic *)characteristic;
+- (instancetype)initWithBleBluetooth:(HYHBleBluetooth *)bleBluetooth;
+- (HYHBleOperator *)withServiceUUID:(CBUUID *)serviceUUID characteristicUUID:(CBUUID *)characteristicUUID;
 
--(void)readCharacteristic:(HYHBleReadCallback *)readCallback;
--(void)enableCharacteristicNotification:(HYHBleNotifyCallback *)notifyCallback;
--(void)disableCharacteristicNotification;
+- (void)readCharacteristic:(HYHBleReadCallback *)readCallback;
+- (void)enableCharacteristicNotification:(HYHBleNotifyCallback *)notifyCallback;
+- (void)disableCharacteristicNotification;
 
--(void)writeCharacteristic:(NSData *)data writeType:(CBCharacteristicWriteType)writeType bleWriteCallback:(HYHBleWriteCallback *)bleWriteCallback;
--(void)bindingSplitWriter:(HYHBleSplitWriter *)splitWriter;
+- (void)writeCharacteristic:(NSData *)data writeType:(CBCharacteristicWriteType)writeType bleWriteCallback:(HYHBleWriteCallback *)bleWriteCallback;
+- (void)bindingSplitWriter:(HYHBleSplitWriter *)splitWriter;
 
--(void)readRssi:(HYHBleRssiCallback *)callback;
--(void)stopOperateTimer;
--(BOOL)valid;
--(void)destroy;
+- (void)readRssi:(HYHBleRssiCallback *)callback;
+- (void)stopOperateTimer;
+- (BOOL)valid;
+- (void)destroy;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,8 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HYHBleDevice : NSObject
--(instancetype) initWithDict:(NSDictionary *)dict;
--(instancetype) initWithPeripheral:(CBPeripheral *)peripheral;
+- (instancetype) initWithDict:(NSDictionary *)dict;
+- (instancetype) initWithPeripheral:(CBPeripheral *)peripheral;
 @property (strong, nonatomic,readonly) CBPeripheral *peripheral;
 @property (strong, nonatomic,readonly,nullable) NSDictionary *advertisementData;
 @property (strong,nonatomic,readonly,nullable) NSNumber *RSSI;
@@ -22,12 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign,nonatomic,readonly) BOOL isConnecting;
 @property (copy,nonatomic,readonly) NSString *deviceKey;
 
--(void)putValue:(id)value forKey:(NSString *) key;
+- (void)putValue:(id)value forKey:(NSString *) key;
 
--(BOOL)isSameDevice:(HYHBleDevice *)bleDevice;
--(nullable id)getWithKey:(NSString *)key;
+- (BOOL)isSameDevice:(HYHBleDevice *)bleDevice;
+- (nullable id)getWithKey:(NSString *)key;
 
--(BOOL)isSamePeripheral:(CBPeripheral *)peripheral;
+- (BOOL)isSamePeripheral:(CBPeripheral *)peripheral;
 
 @end
 

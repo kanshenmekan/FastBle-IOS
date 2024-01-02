@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HYHBleSplitWriter : NSObject
 @property (weak,nonatomic)  HYHBleOperator *weakBleOperator;
--(void)splitwrite:(NSData *)data splitNum:(NSInteger)splitNum continueWhenLastFail:(BOOL)continueWhenLastFail intervalBetweenTwoPackage:(NSInteger)intervalBetweenTwoPackage callback:(HYHBleWriteCallback *)callback writeType:(CBCharacteristicWriteType)writeType;
+- (void)splitwrite:(NSData *)data splitNum:(NSInteger)splitNum continueWhenLastFail:(BOOL)continueWhenLastFail intervalBetweenTwoPackage:(NSInteger)intervalBetweenTwoPackage callback:(HYHBleWriteCallback *)callback writeType:(CBCharacteristicWriteType)writeType;
 @end
 
 NS_ASSUME_NONNULL_END
