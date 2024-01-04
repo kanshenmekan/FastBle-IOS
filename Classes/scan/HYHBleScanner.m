@@ -55,20 +55,21 @@ static id _instace;
                                                                 @"advertisementData":advertisementData,
                                                                 @"RSSI":RSSI}];
     if (self.bleScanCofig) {
-        BOOL hasNameFound = YES;
-        BOOL hasIdentifyFound = YES;
+        BOOL hasPassed = NO;
+        if (self.bleScanCofig.names.count == 0 && self.bleScanCofig.identifiers.count == 0) {
+            hasPassed = YES;
+        }
         if (self.bleScanCofig.names.count > 0) {
-            hasNameFound = NO;
             if (device.name != nil) {
                 for (NSString *name in self.bleScanCofig.names) {
                     if (self.bleScanCofig.fuzzyName) {
                         if ([device.name localizedCaseInsensitiveContainsString:name]) {
-                            hasNameFound = YES;
+                            hasPassed = YES;
                             break;
                         }
                     }else{
                         if ([device.name isEqualToString:name]) {
-                            hasNameFound = YES;
+                            hasPassed = YES;
                             break;
                         }
                     }
@@ -76,15 +77,14 @@ static id _instace;
             }
         }
         if (self.bleScanCofig.identifiers.count > 0) {
-            hasIdentifyFound = NO;
             for (NSString *identify in self.bleScanCofig.identifiers) {
                 if ([identify isEqualToString:device.deviceKey]) {
-                    hasIdentifyFound = YES;
+                    hasPassed = YES;
                     break;
                 }
             }
         }
-        if (!hasNameFound && !hasIdentifyFound) {
+        if (!hasPassed) {
             return;
         }
     }
