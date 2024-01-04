@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "FastBle"
-  spec.version      = "1.0.4"
+  spec.version      = "1.0.5"
   spec.summary      = "在CoreBluetooth的基础上封装"
 
   # This description is used to generate tags and improve search results.

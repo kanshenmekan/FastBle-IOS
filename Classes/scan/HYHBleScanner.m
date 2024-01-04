@@ -57,18 +57,20 @@ static id _instace;
     if (self.bleScanCofig) {
         BOOL hasNameFound = YES;
         BOOL hasIdentifyFound = YES;
-        if (self.bleScanCofig.names.count > 0 && device.name != nil) {
+        if (self.bleScanCofig.names.count > 0) {
             hasNameFound = NO;
-            for (NSString *name in self.bleScanCofig.names) {
-                if (self.bleScanCofig.fuzzyName) {
-                    if ([device.name localizedCaseInsensitiveContainsString:name]) {
-                        hasNameFound = YES;
-                        break;
-                    }
-                }else{
-                    if ([device.name isEqualToString:name]) {
-                        hasNameFound = YES;
-                        break;
+            if (device.name != nil) {
+                for (NSString *name in self.bleScanCofig.names) {
+                    if (self.bleScanCofig.fuzzyName) {
+                        if ([device.name localizedCaseInsensitiveContainsString:name]) {
+                            hasNameFound = YES;
+                            break;
+                        }
+                    }else{
+                        if ([device.name isEqualToString:name]) {
+                            hasNameFound = YES;
+                            break;
+                        }
                     }
                 }
             }
