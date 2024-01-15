@@ -13,7 +13,7 @@
 
 @implementation HYHBleDevice
 - (instancetype) initWithDict:(NSDictionary *)dict{
-    if([self init]){
+    if(self = [self init]){
         _peripheral = dict[@"peripheral"];
         _advertisementData = dict[@"advertisementData"];
         _RSSI = dict[@"RSSI"];
@@ -28,7 +28,7 @@
     return self;
 }
 - (instancetype) initWithPeripheral:(CBPeripheral *)peripheral{
-    if ([self init]) {
+    if (self = [self init]) {
         _peripheral = peripheral;
     }
     return self;

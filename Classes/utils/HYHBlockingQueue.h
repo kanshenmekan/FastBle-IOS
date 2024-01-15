@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HYHBlockingQueue<T> : NSObject
 - (void)clear;
 - (void)remove:(T)obj;
-- (T)dequeue;
+- (nullable T)dequeue;
 - (void)enqueue:(T)object;
 - (NSUInteger)count;
 @end

@@ -32,7 +32,7 @@
     }
 }
 
-- (id)dequeue {
+- (nullable id)dequeue {
     id object = nil;
     @synchronized(self.dequeueLock) {
         dispatch_semaphore_wait(self.queueSemaphore, DISPATCH_TIME_FOREVER);
